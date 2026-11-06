@@ -115,3 +115,6 @@ InitTestScene*.unity*
 
 # Claude Code 개인 설정 (README "권한 설정" 참고)
 .claude/settings.local.json
+
+# pixelfx 체크아웃 (Tools/pixelfx-setup.mjs가 고정 커밋으로 받는다)
+/External/pixelfx/
