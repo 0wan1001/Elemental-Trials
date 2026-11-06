@@ -101,3 +101,4 @@
 - 최신화·충돌 해결: /sync
 - PR 머지: /merge
 - Unity 기능 구현: /unity-feature
+- pixelfx 이펙트 렌더·가져오기: /pixelfx
