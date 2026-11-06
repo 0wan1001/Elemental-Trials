@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch --show-current)",
+      "Bash(git branch --list:*)",
+      "Bash(git fetch:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(git lfs version)",
+      "Bash(git lfs status:*)",
+      "Bash(gh auth status:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh label list:*)",
+      "Bash(unity status:*)",
+      "Bash(unity pipeline list:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git push --force-with-lease:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git push origin --delete prod)",
+      "Bash(git push origin --delete develop)",
+      "Bash(git push origin --delete main)",
+      "Bash(gh pr merge --admin:*)"
+    ]
+  }
+}
