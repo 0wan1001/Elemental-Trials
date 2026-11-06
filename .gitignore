@@ -107,3 +107,11 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# 비밀 정보 (커밋하지 않음)
+.env
+*.keystore
+*.jks
+
+# Claude Code 개인 설정 (README "권한 설정" 참고)
+.claude/settings.local.json
