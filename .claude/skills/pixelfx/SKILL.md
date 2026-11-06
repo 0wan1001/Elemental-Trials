@@ -54,7 +54,7 @@ unity command script eval --caller plugin --skill pixelfx --code 'return Element
 
 ## 이 프로젝트의 규칙
 
-- pixelfx는 "한 자리에서 터지는 이펙트"만 담당한다: 불덩이 폭발, 낙뢰, 물결 튀김, 증기 퍼프, 감전 스파크, 과부하 폭발.
+- pixelfx는 "한 자리에서 터지는 이펙트"만 담당한다: 불덩이 폭발, 낙뢰, 물결 튀김, 증기 퍼프, 감전 스파크, 과부하 폭발, 순간이동 사라짐·나타남 (arcane/blink-out, blink-in).
 - 번개 전도 경로, 바닥 상태 표시, 히트 플래시, 흔들림, 데미지 숫자는 pixelfx로 만들지 않는다 (코드로 직접 구현).
 - Patch Pixel 폰트는 쓰지 않는다. 체크아웃에서 `gallery/`를 받지 않는다. 폰트 파일을 Assets에 넣지 않는다.
 - 이펙트 적용(게임에 붙이기)은 3주차 일정이다. 그 전에는 사용자가 요청할 때만 뽑는다.
