@@ -28,7 +28,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "b39f524a-a619-4a05-a2d1-7003b1c78f19",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -37,7 +37,7 @@
                     "name": "Skill1",
                     "type": "Button",
                     "id": "30c539a7-960d-43ef-bfa4-0f87fcd46a33",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -46,7 +46,7 @@
                     "name": "Skill2",
                     "type": "Button",
                     "id": "b81ef1d7-63a1-4746-a83c-e67498f3e185",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -55,7 +55,7 @@
                     "name": "Skill3",
                     "type": "Button",
                     "id": "c78333f6-e08a-45d9-b3ee-ef975fe822f3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -64,7 +64,7 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "93d61429-8f45-4bbd-a10c-c25e8ce612eb",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -73,7 +73,7 @@
                     "name": "Restart",
                     "type": "Button",
                     "id": "aadca115-806e-413d-b87c-1dd0bdec6ed1",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
