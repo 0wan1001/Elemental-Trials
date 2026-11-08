@@ -118,3 +118,6 @@ InitTestScene*.unity*
 
 # pixelfx 체크아웃 (Tools/pixelfx-setup.mjs가 고정 커밋으로 받는다)
 /External/pixelfx/
+
+# Rider IDE 설정
+/.idea/
