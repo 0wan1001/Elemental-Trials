@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
         if (_playerController.IsAttackPressed && !_playerController.IsDashing && Time.time >= _nextFireTime)
         {
             Projectile projectile = _projectilePool.Get();
-            projectile.Launch(transform.position, _playerController.AimDirection, _skillData.BoltSpeed, _skillData.BoltLifeTime);
+            projectile.Launch(transform.position, _playerController.AimDirection, _skillData.BoltSpeed, _skillData.BoltLifeTime, _skillData.Damage);
             _nextFireTime = Time.time + _skillData.Cooldown;
         }
     }
