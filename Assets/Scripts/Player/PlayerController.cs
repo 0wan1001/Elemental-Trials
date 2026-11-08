@@ -18,15 +18,15 @@ public class PlayerController : MonoBehaviour
     private float _invincibleEndTime;
     
     public Vector2 AimDirection => _aimDirection;
+    public bool IsAttackPressed => _gameInput.Player.Attack.IsPressed();
     public bool IsInvincible => Time.time < _invincibleEndTime;
+    public bool IsDashing => _moveType == PlayerMoveType.Dash;
     private bool CanDash => _gameInput.Player.Dash.WasPerformedThisFrame() && _moveType == PlayerMoveType.Normal && Time.time >= _nextDashTime;
 
     private void Awake()
     {
         _gameInput = new GameInput();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _camera = Camera.main;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        CacheComponents();
     }
     private void OnEnable() => _gameInput.Player.Enable();
     private void OnDisable() => _gameInput.Player.Disable();
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
        
        Vector2 mouseAimPosition = _gameInput.Player.Aim.ReadValue<Vector2>();
        Vector2 mouseWorldPosition = _camera.ScreenToWorldPoint(mouseAimPosition);
-       _aimDirection = (mouseWorldPosition - (Vector2)transform.position);
+       _aimDirection = (mouseWorldPosition - (Vector2)transform.position).normalized;
 
        if (CanDash)
        {
@@ -76,5 +76,12 @@ public class PlayerController : MonoBehaviour
             _nextDashTime = Time.time + _playerData.DashCooldown;
             _invincibleEndTime = Time.time + _playerData.DashInvincibleDuration;
         }
+    }
+
+    private void CacheComponents()
+    {
+        _camera = Camera.main;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 }
