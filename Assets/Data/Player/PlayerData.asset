@@ -17,3 +17,5 @@ MonoBehaviour:
   _dashCooldown: 1
   _dashDuration: 0.06
   _dashInvincibleDuration: 0.3
+  _playerMaxHP: 6
+  _hitInvincibleDuration: 1
