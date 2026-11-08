@@ -22,9 +22,9 @@ public class Projectile : MonoBehaviour
         if (Time.time >= _despawnTime) Despawn();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.TryGetComponent(out IDamageable target))
+        if (other.TryGetComponent(out IDamageable target))
         {
             target.TakeDamage(_damage);
         }

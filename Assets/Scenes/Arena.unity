@@ -2234,6 +2234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossController
   _player: {fileID: 669640129}
   _bossData: {fileID: 11400000, guid: 1f1aedef96d2f9544be360083baa01bd, type: 2}
+  _projectilePool: {fileID: 2036917818}
+  _coreRenderer: {fileID: 1788056639}
 --- !u!1 &1690631955
 GameObject:
   m_ObjectHideFlags: 0
