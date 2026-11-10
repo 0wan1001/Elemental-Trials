@@ -13,7 +13,25 @@ public class BossData : ScriptableObject
     [SerializeField] private int _circularBarrageBulletCount;
     [SerializeField] private float _bossBulletSpeed;
     [SerializeField] private float _bossBulletLifeTime;
-    
+    [SerializeField] private float _chargeIndicator;
+    [SerializeField] private float _chargeSpeed;
+    [SerializeField] private float _chargeDistance;
+    [SerializeField] private int _chargeBulletCount;
+    [SerializeField] private float _chargeBulletSpeed;
+    [SerializeField] private float _chargeTimeMargin;
+    [SerializeField] private int _fireFieldDamage;
+    [SerializeField] private float _fireFieldIndicator;
+    [SerializeField] private float _fireFieldDuration;
+    [SerializeField] private int _fireFieldCount;
+    [SerializeField] private Vector2 _fireFieldSpreadBox;
+    [SerializeField] private float _fireFieldRecovery;
+    [SerializeField] private float _fanShotIndicator;
+    [SerializeField] private int _fanBulletCount;
+    [SerializeField] private float _fanSpreadAngle;
+    [SerializeField] private int _fanVolleyCount;
+    [SerializeField] private float _fanVolleyInterval;
+    [SerializeField] private float _fanBulletSpeed;
+
     public int BossHealth => _bossHealth;
     public float BossMoveSpeed => _bossMoveSpeed;
     public float ApproachStartDistance => _approachStartDistance;
@@ -24,4 +42,22 @@ public class BossData : ScriptableObject
     public int CircularBarrageBulletCount => _circularBarrageBulletCount;
     public float BossBulletSpeed => _bossBulletSpeed;
     public float BossBulletLifeTime => _bossBulletLifeTime;
+    public float ChargeIndicator => _chargeIndicator;
+    public float ChargeSpeed => _chargeSpeed;
+    public float ChargeDistance => _chargeDistance;
+    public int ChargeBulletCount => _chargeBulletCount;
+    public float ChargeBulletSpeed => _chargeBulletSpeed;
+    public float ChargeTimeMargin => _chargeTimeMargin;
+    public int FireFieldDamage => _fireFieldDamage;
+    public float FireFieldIndicator => _fireFieldIndicator;
+    public Vector2 FireFieldSpreadBox => _fireFieldSpreadBox;
+    public float FireFieldDuration => _fireFieldDuration;
+    public int FireFieldCount => _fireFieldCount;
+    public float FireFieldRecovery => _fireFieldRecovery;
+    public float FanShotIndicator => _fanShotIndicator;
+    public int FanBulletCount => _fanBulletCount;
+    public float FanSpreadAngle => _fanSpreadAngle;
+    public int FanVolleyCount => _fanVolleyCount;
+    public float FanVolleyInterval => _fanVolleyInterval;
+    public float FanBulletSpeed => _fanBulletSpeed;
 }

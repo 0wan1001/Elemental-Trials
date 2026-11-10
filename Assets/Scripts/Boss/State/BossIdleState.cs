@@ -16,31 +16,34 @@ public class BossIdleState : IBossState
 
     public void Tick()
     {
-        _timer += Time.deltaTime;
         if (_timer >= _bossController.BossData.PatternInterval)
         {
-            _bossController.ChangeState(_bossController.RadialBurstState);
-            return;
+            _bossController.ChangeState(_bossController.GetRandomPattern());
+        }
+        else
+        {
+            _timer += Time.deltaTime;
         }
         
         Vector2 toPlayer = _bossController.Player.position - _bossController.transform.position;
         float distance = toPlayer.magnitude;
 
         if (distance > _bossController.BossData.ApproachStartDistance)
-        {
-         _bossController.Move(toPlayer);   
+        { 
+            _bossController.Move(toPlayer, _bossController.BossData.BossMoveSpeed);   
         }
         else if (distance < _bossController.BossData.RetreatStartDistance)
         {
-            _bossController.Move(-toPlayer);
+            _bossController.Move(-toPlayer, _bossController.BossData.BossMoveSpeed);
         }
         else
         {
-            _bossController.Move(Vector2.zero);
+            _bossController.Move(Vector2.zero, 0);
         }
     }
 
     public void Exit()
     {
     }
+    
 }

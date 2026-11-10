@@ -22,3 +22,21 @@ MonoBehaviour:
   _circularBarrageBulletCount: 16
   _bossBulletSpeed: 4.375
   _bossBulletLifeTime: 4
+  _chargeIndicator: 0.7
+  _chargeSpeed: 14.375
+  _chargeDistance: 9.375
+  _chargeBulletCount: 10
+  _chargeBulletSpeed: 3.75
+  _chargeTimeMargin: 0.15
+  _fireFieldDamage: 1
+  _fireFieldIndicator: 0.9
+  _fireFieldDuration: 4
+  _fireFieldCount: 4
+  _fireFieldSpreadBox: {x: 3.4375, y: 2.8125}
+  _fireFieldRecovery: 0.6
+  _fanShotIndicator: 0.35
+  _fanBulletCount: 5
+  _fanSpreadAngle: 41.25
+  _fanVolleyCount: 3
+  _fanVolleyInterval: 0.32
+  _fanBulletSpeed: 6.5625
