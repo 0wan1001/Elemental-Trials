@@ -7,8 +7,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private ProjectilePool _projectilePool;
     [SerializeField] private SpriteRenderer _coreRenderer;
     [SerializeField] private Transform _chargeLine;
-    [SerializeField] private FireZone[] _fireZone;
-    [SerializeField] private Vector2 _arenaHalfSize;
+    [SerializeField] private TileGrid _tileGrid;
 
     private IBossState[] _pattern;
     private IBossState _currentState;
@@ -23,7 +22,7 @@ public class BossController : MonoBehaviour
 
     public Transform Player => _player;
     public Transform ChargeLine => _chargeLine;
-    public FireZone[] FireZone => _fireZone;
+    public TileGrid TileGrid => _tileGrid;
     public BossData BossData => _bossData;
     public BossIdleState IdleState => _idleState;
     public BossRadialBurstState RadialBurstState => _radialBurstState;
@@ -115,12 +114,5 @@ public class BossController : MonoBehaviour
             _bossData.BossBulletLifeTime,
             _bossData.ContactDamage
         );
-    }
-    
-    public Vector2 ClampToArena(Vector2 position, float margin)
-    {
-        float x = Mathf.Clamp(position.x, -_arenaHalfSize.x + margin, _arenaHalfSize.x - margin);
-        float y = Mathf.Clamp(position.y, -_arenaHalfSize.y + margin, _arenaHalfSize.y - margin);
-        return new Vector2(x, y);
     }
 }

@@ -16,28 +16,18 @@ public class BossFireFieldState : IBossState
 
         Vector2 playerPosition = _bossController.Player.position;
         Vector2 box = _bossController.BossData.FireFieldSpreadBox;
-        int activeCount = 0;
-        for (int i=0; i < _bossController.FireZone.Length; i++)
+        for (int i=0; i < _bossController.BossData.FireFieldCount; i++)
         {
-            if(!_bossController.FireZone[i].gameObject.activeSelf)
+            Vector2 position = playerPosition;
+            if (i != 0)
             {
-                Vector2 position = playerPosition;
-                if (activeCount > 0)
-                {
-                    position += new Vector2(Random.Range(-box.x, box.x), Random.Range(-box.y, box.y));
-                }
-                float radius = _bossController.FireZone[i].transform.lossyScale.x * 0.5f;
-                position = _bossController.ClampToArena(position, radius);
-
-                _bossController.FireZone[i].ActiveFireField(
-                    position,
-                    _bossController.BossData.FireFieldIndicator,
-                    _bossController.BossData.FireFieldDuration,
-                    _bossController.BossData.FireFieldDamage
-                );
-                activeCount++;
-                if(activeCount == _bossController.BossData.FireFieldCount) break;
+                position += new Vector2(Random.Range(-box.x, box.x), Random.Range(-box.y, box.y));
             }
+            _bossController.TileGrid.ApplyWarning(position,
+                _bossController.BossData.FireFieldRadius,
+                _bossController.BossData.FireFieldIndicator,
+                _bossController.BossData.FireFieldDuration
+                );
         }
     }
 
