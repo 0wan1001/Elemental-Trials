@@ -19,10 +19,10 @@ public class BossData : ScriptableObject
     [SerializeField] private int _chargeBulletCount;
     [SerializeField] private float _chargeBulletSpeed;
     [SerializeField] private float _chargeTimeMargin;
-    [SerializeField] private int _fireFieldDamage;
     [SerializeField] private float _fireFieldIndicator;
     [SerializeField] private float _fireFieldDuration;
     [SerializeField] private int _fireFieldCount;
+    [SerializeField] private float _fireFieldRadius;
     [SerializeField] private Vector2 _fireFieldSpreadBox;
     [SerializeField] private float _fireFieldRecovery;
     [SerializeField] private float _fanShotIndicator;
@@ -48,8 +48,8 @@ public class BossData : ScriptableObject
     public int ChargeBulletCount => _chargeBulletCount;
     public float ChargeBulletSpeed => _chargeBulletSpeed;
     public float ChargeTimeMargin => _chargeTimeMargin;
-    public int FireFieldDamage => _fireFieldDamage;
     public float FireFieldIndicator => _fireFieldIndicator;
+    public float FireFieldRadius => _fireFieldRadius;
     public Vector2 FireFieldSpreadBox => _fireFieldSpreadBox;
     public float FireFieldDuration => _fireFieldDuration;
     public int FireFieldCount => _fireFieldCount;
