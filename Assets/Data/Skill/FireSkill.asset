@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSkill
   _damage: 8
   _cooldown: 1.2
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 256

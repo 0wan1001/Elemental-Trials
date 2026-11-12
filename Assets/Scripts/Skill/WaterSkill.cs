@@ -9,6 +9,8 @@ public class WaterSkill : ElementSkill
     
     public override void Use(Vector2 playerPosition, Vector2 mousePosition, TileGrid grid)
     {
-        grid.ApplyStateInCone(FloorState.Wet, playerPosition, _range, mousePosition-playerPosition, _halfAngle,  _wetDuration );
+        Vector2 direction = mousePosition - playerPosition;
+        grid.ApplyStateInCone(FloorState.Wet, playerPosition, _range, direction, _halfAngle, _wetDuration);
+        DamageInRange(playerPosition, _range, direction, _halfAngle);
     }
 }

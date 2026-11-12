@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LightningSkill
   _damage: 10
   _cooldown: 1.8
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
