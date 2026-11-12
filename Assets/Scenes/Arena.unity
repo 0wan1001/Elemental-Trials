@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 669640131}
   - component: {fileID: 669640132}
   - component: {fileID: 669640133}
+  - component: {fileID: 669640134}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1165,6 +1166,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloorSensor
   _fireFieldDamage: 1
   _tileGrid: {fileID: 623737044}
+--- !u!114 &669640134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669640125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2f55d745f0aad4e9b064f16a2baea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkill
+  _tileGrid: {fileID: 623737044}
+  _elementSkills:
+  - {fileID: 11400000, guid: b89d756d6679b7848a50f1d62cfc707f, type: 2}
+  - {fileID: 11400000, guid: 3e6f9a76c2787cb4a8e9089e669f3355, type: 2}
+  - {fileID: 11400000, guid: c80de64fa56253641807beaa6eb3de72, type: 2}
 --- !u!114 &921811014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,7 +2526,6 @@ MonoBehaviour:
   _coreRenderer: {fileID: 1788056639}
   _chargeLine: {fileID: 2058806533}
   _tileGrid: {fileID: 623737044}
-  _arenaHalfSize: {x: 10, y: 5.5}
 --- !u!1 &1690631955
 GameObject:
   m_ObjectHideFlags: 0

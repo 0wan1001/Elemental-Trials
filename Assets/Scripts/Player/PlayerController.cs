@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Vector2 _moveInput;
     private Vector2 _aimDirection;
+    private Vector2 _mousePosition;
     private PlayerMoveType _moveType;
     private Vector2 _dashDirection;
     private float _dashEndTime;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float _invincibleEndTime;
     
     public Vector2 AimDirection => _aimDirection;
+    public Vector2 MousePosition => _mousePosition;
     public bool IsAttackPressed => _gameInput.Player.Attack.IsPressed();
     public bool IsInvincible => Time.time < _invincibleEndTime;
     public bool IsDashing => _moveType == PlayerMoveType.Dash;
@@ -37,9 +39,10 @@ public class PlayerController : MonoBehaviour
        _moveInput = _gameInput.Player.Move.ReadValue<Vector2>();
        
        Vector2 mouseAimPosition = _gameInput.Player.Aim.ReadValue<Vector2>();
-       Vector2 mouseWorldPosition = _camera.ScreenToWorldPoint(mouseAimPosition);
+       Vector2 mouseWorldPosition= _camera.ScreenToWorldPoint(mouseAimPosition);
+       _mousePosition = mouseWorldPosition;
        _aimDirection = (mouseWorldPosition - (Vector2)transform.position).normalized;
-
+       
        if (CanDash)
        {
            StartDash();
@@ -76,6 +79,17 @@ public class PlayerController : MonoBehaviour
             _nextDashTime = Time.time + _playerData.DashCooldown;
             _invincibleEndTime = Time.time + _playerData.DashInvincibleDuration;
         }
+    }
+
+    public bool IsSkillPressed(int index)
+    {
+        switch (index)
+        {
+            case 0: return _gameInput.Player.Skill1.WasPerformedThisFrame();
+            case 1: return _gameInput.Player.Skill2.WasPerformedThisFrame();
+            case 2: return _gameInput.Player.Skill3.WasPerformedThisFrame();
+        }
+        return false;
     }
 
     private void CacheComponents()
