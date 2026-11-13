@@ -17,3 +17,8 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  _strikePrefab: {fileID: 3137172810875124363, guid: f896d308b68a6204cb30247137d29b73, type: 3}
+  _indicatorTime: 0.3
+  _hitRadius: 0.875
+  _electricRadius: 0.375
+  _electricDuration: 0.5
