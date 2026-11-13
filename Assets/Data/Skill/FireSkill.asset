@@ -17,3 +17,8 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  _fireBallPrefab: {fileID: 7785405789917211082, guid: 5d96db82bbd14144ba9eb08ed199530d, type: 3}
+  _speed: 10
+  _explosionRadius: 1.125
+  _fireRadius: 0.875
+  _fireDuration: 3.5
