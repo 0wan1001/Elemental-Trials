@@ -132,6 +132,22 @@ public class TileGrid : MonoBehaviour
         }
     }
 
+    public void ApplyStateInCone(FloorState state, Vector2 worldPosition, float radius, Vector2 direction, float maxAngle, float duration)
+    {
+        for (int x = 0; x < GRID_WIDTH; x++)
+        {
+            for (int y = 0; y < GRID_HEIGHT; y++)
+            {
+                Vector3Int cell = new Vector3Int(x, y, 0);
+                Vector2 centerWorldPos = _grid.GetCellCenterWorld(cell);
+                if (Vector2.Distance(centerWorldPos, worldPosition) <= radius && Vector2.Angle(direction, centerWorldPos - worldPosition) <= maxAngle)
+                {
+                    _timers[(int)state][x, y] = duration;
+                }
+            }
+        }
+    }
+
     public void ApplyWarning(Vector2 worldPosition, float radius, float warningDuration, float fireDuration)
     {
         for (int x = 0; x < GRID_WIDTH; x++)
