@@ -1167,6 +1167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloorSensor
   _fireFieldDamage: 1
   _tileGrid: {fileID: 623737044}
+  _fireTickInterval: 0.4
 --- !u!114 &669640134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2411,6 +2412,7 @@ GameObject:
   - component: {fileID: 1669018857}
   - component: {fileID: 1669018858}
   - component: {fileID: 1669018859}
+  - component: {fileID: 1669018860}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
@@ -2554,6 +2556,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElementStatus
   _elementData: {fileID: 11400000, guid: 4ba4accfdc60b924c9a208d9f671ed75, type: 2}
+--- !u!114 &1669018860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669018853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f747909060ef0b74699d58c977b23bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloorSensor
+  _fireFieldDamage: 2
+  _tileGrid: {fileID: 623737044}
+  _fireTickInterval: 0.4
 --- !u!1 &1690631955
 GameObject:
   m_ObjectHideFlags: 0
