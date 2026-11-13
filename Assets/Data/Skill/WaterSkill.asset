@@ -17,6 +17,7 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  _element: 1
   _range: 3.5
   _halfAngle: 28.6
   _wetDuration: 7
