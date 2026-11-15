@@ -3,6 +3,8 @@ using UnityEngine;
 public class ElementStatus : MonoBehaviour
 {
     [SerializeField] private ElementData _elementData;
+    [SerializeField] private ReactionTable _reactionTable;
+    
     private float[] _timers;
     private float _nextBurnTime;
     private IDamageable _target;
@@ -27,6 +29,18 @@ public class ElementStatus : MonoBehaviour
     }
     public void Apply(ElementType type)
     {
+        for (int i = 0; i < _timers.Length; i++)
+        {
+            if ((ElementType)i == type) continue;
+            if (!Has((ElementType)i)) continue;
+            ReactionEntry entry = _reactionTable.Find(type, (ElementType)i);
+            if (entry == null) continue;
+
+            _timers[i] = 0;
+            if (entry.Damage > 0) _target.TakeDamage(entry.Damage);
+            Debug.Log($"{name} 반응 : {entry.Result}");
+            return;
+        }
         if (!Has(ElementType.Fire))
         {
             _nextBurnTime = Time.time + _elementData.BurnInterval;
