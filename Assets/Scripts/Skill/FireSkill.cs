@@ -17,6 +17,7 @@ public class FireSkill : ElementSkill
 
     public void Explode(Vector2 position, TileGrid grid)
     {
+        FeedbackManager.Instance.FireBallExplosion();
         grid.ApplyState(FloorState.Fire, position, _fireRadius, _fireDuration);
         DamageInRange(position, _explosionRadius, Vector2.right);
     }

@@ -27,7 +27,7 @@ public class ElementStatus : MonoBehaviour
         }
         if (Has(ElementType.Fire) && Time.time >= _nextBurnTime)
         {
-            _target.TakeDamage(_elementData.BurnDamage);
+            _target.TakeDamage(_elementData.BurnDamage, ElementType.Fire);
             _nextBurnTime += _elementData.BurnInterval;
         }
     }
@@ -41,7 +41,8 @@ public class ElementStatus : MonoBehaviour
             if (entry == null) continue;
 
             _timers[i] = 0;
-            if (entry.Damage > 0) _target.TakeDamage(entry.Damage);
+            FeedbackManager.Instance.Reaction(entry.Result);
+            if (entry.Damage > 0) _target.TakeDamage(entry.Damage, type);
             if (entry.Result == ReactionType.ElectricShock && _stunnable != null) _stunnable.Stun();
             if (entry.Result == ReactionType.Overload) Explode();
             if (entry.Result == ReactionType.Steam && _aimDisruptable != null) _aimDisruptable.DisruptAim();
@@ -79,7 +80,7 @@ public class ElementStatus : MonoBehaviour
     public void HitByExplosion(Vector2 center)
     {
         ReactionEntry entry = _reactionTable.FindByResult(ReactionType.Overload);
-        if (entry != null && entry.Damage > 0) _target.TakeDamage(entry.Damage);
+        if (entry != null && entry.Damage > 0) _target.TakeDamage(entry.Damage, ElementType.Fire);
         if (_knockbackable != null) _knockbackable.Knockback((Vector2)transform.position - center, _elementData.KnockbackSpeed, _elementData.KnockbackDuration);
     }
 

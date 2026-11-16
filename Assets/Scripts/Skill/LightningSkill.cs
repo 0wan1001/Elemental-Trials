@@ -20,11 +20,13 @@ public class LightningSkill : ElementSkill
 
     public void Strike(Vector2 position, TileGrid grid)
     {
+        FeedbackManager.Instance.LightningFlash();
         grid.ApplyState(FloorState.Electric, position, _electricRadius, _electricDuration);
         DamageInRange(position, _hitRadius, Vector2.right);
-        
+
         List<Vector2Int> cells = grid.Conduct(position, _maxConductCells, _conductDuration);
         if (cells.Count == 0) return;
+        FeedbackManager.Instance.Conduct();
         foreach (ElementStatus status in FindObjectsByType<ElementStatus>(FindObjectsSortMode.None))
         {
             if (grid.TryGetCell(status.transform.position, out Vector2Int cell) && cells.Contains(cell))
