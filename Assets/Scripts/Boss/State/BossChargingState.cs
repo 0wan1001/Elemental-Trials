@@ -40,6 +40,7 @@ public class BossChargingState : IBossState
                 + _bossController.BossData.ChargeTimeMargin)
             {
                 _bossController.Move(Vector2.zero, 0);
+                FeedbackManager.Instance.ChargeImpact();
                 _bossController.FireRadial(_bossController.BossData.ChargeBulletCount, _bossController.BossData.ChargeBulletSpeed);
                 _bossController.ChangeState(_bossController.IdleState);
             }

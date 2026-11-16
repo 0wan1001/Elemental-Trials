@@ -58,12 +58,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         _playerAttack = GetComponent<PlayerAttack>();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, ElementType element = ElementType.None)
     {
         if (IsDead) return;
         if(_playerController.IsInvincible || IsHitInvincible) return;
-        
+
         _playerHP -= damage;
+        FeedbackManager.Instance.PlayerHit();
         if (_playerHP <= 0)
         {
             Die();

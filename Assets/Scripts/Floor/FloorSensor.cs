@@ -35,7 +35,7 @@ public class FloorSensor : MonoBehaviour
         {
             if (Time.time >= _nextFireTickTime)
             {
-                _target.TakeDamage(_fireFieldDamage);
+                _target.TakeDamage(_fireFieldDamage, ElementType.Fire);
                 _nextFireTickTime = Time.time + _fireTickInterval;
             }
         }

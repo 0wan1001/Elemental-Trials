@@ -23,11 +23,12 @@ public class BossHealth : MonoBehaviour, IDamageable
     {
         
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, ElementType element = ElementType.None)
     {
         if (IsDead) return;
-        
+
         _bossHp -= damage;
+        FeedbackManager.Instance.BossHit(damage, element, transform.position);
         if (_bossHp <= 0)
         {
             Die();

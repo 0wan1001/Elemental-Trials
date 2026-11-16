@@ -22,7 +22,7 @@ public abstract class ElementSkill : ScriptableObject
 
             if (hit.TryGetComponent(out IDamageable target))
             {
-                target.TakeDamage(_damage);
+                target.TakeDamage(_damage, _element);
                 if (hit.TryGetComponent(out ElementStatus status))
                 {
                     status.Apply(_element);
