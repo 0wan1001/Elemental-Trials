@@ -23,3 +23,5 @@ MonoBehaviour:
   _hitRadius: 0.875
   _electricRadius: 0.375
   _electricDuration: 0.5
+  _maxConductCells: 160
+  _conductDuration: 0.3

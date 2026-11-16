@@ -27,4 +27,13 @@ public class ReactionTable : ScriptableObject
         }
         return null;
     }
+    
+    public ReactionEntry FindByResult(ReactionType result)
+    {
+        foreach (ReactionEntry entry in _entries)
+        {
+            if (entry.Result == result) return entry;
+        }
+        return null;
+    }
 }

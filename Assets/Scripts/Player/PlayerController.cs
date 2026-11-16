@@ -1,7 +1,7 @@
 using ElementalTrials.Input;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IKnockbackable
 {
     [SerializeField] private PlayerData _playerData;
     
@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     private float _dashEndTime;
     private float _nextDashTime;
     private float _invincibleEndTime;
-    
+    private float _knockbackEndTime;
+
     public Vector2 AimDirection => _aimDirection;
     public Vector2 MousePosition => _mousePosition;
     public bool IsAttackPressed => _gameInput.Player.Attack.IsPressed();
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Time.time < _knockbackEndTime) return;
         if (_moveType == PlayerMoveType.Dash)
         {
             Vector2 velocity = _dashDirection * _playerData.DashSpeed;
@@ -79,6 +81,13 @@ public class PlayerController : MonoBehaviour
             _nextDashTime = Time.time + _playerData.DashCooldown;
             _invincibleEndTime = Time.time + _playerData.DashInvincibleDuration;
         }
+    }
+    
+    public void Knockback(Vector2 direction, float speed, float duration)
+    {
+        if (direction == Vector2.zero || IsDashing) return;
+        _rigidbody.linearVelocity = direction.normalized * speed;
+        _knockbackEndTime = Time.time + duration;
     }
 
     public bool IsSkillPressed(int index)

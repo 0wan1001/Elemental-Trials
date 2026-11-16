@@ -17,3 +17,8 @@ MonoBehaviour:
   _lightningDuration: 2
   _burnInterval: 0.5
   _burnDamage: 2
+  _overloadRadius: 1.25
+  _knockbackSpeed: 8
+  _knockbackDuration: 0.15
+  _steamRadius: 1.25
+  _steamDuration: 3

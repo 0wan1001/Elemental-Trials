@@ -1197,8 +1197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e40d5c5d4d63d4281703c7467d83dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElementStatus
-  _elementData: {fileID: 11400000, guid: 4ba4accfdc60b924c9a208d9f671ed75, type: 2}
-  _reactionTable: {fileID: 11400000, guid: cc8d0285bf4127440953cecdf9b0d4ac, type: 2}
+  _elementData: {fileID: 11400000, guid: 5f64c8865015e6540923c9cb51250fca, type: 2}
+  _reactionTable: {fileID: 11400000, guid: 1e2cee093325f5845a2903ca7dd6ab51, type: 2}
+  _tileGrid: {fileID: 623737044}
 --- !u!114 &921811014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2558,6 +2559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElementStatus
   _elementData: {fileID: 11400000, guid: 4ba4accfdc60b924c9a208d9f671ed75, type: 2}
   _reactionTable: {fileID: 11400000, guid: cc8d0285bf4127440953cecdf9b0d4ac, type: 2}
+  _tileGrid: {fileID: 623737044}
 --- !u!114 &1669018860
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,15 +4,19 @@ public class ElementStatus : MonoBehaviour
 {
     [SerializeField] private ElementData _elementData;
     [SerializeField] private ReactionTable _reactionTable;
+    [SerializeField] private TileGrid _tileGrid;
     
     private float[] _timers;
     private float _nextBurnTime;
     private IDamageable _target;
-    
+    private IStunnable _stunnable;
+    private IKnockbackable _knockbackable;
+    private IAimDisruptable _aimDisruptable;
+
     private void Awake()
     {
         _timers = new float[3];
-        _target = GetComponent<IDamageable>();
+        CacheComponents();
     }
 
     private void Update()
@@ -38,7 +42,10 @@ public class ElementStatus : MonoBehaviour
 
             _timers[i] = 0;
             if (entry.Damage > 0) _target.TakeDamage(entry.Damage);
-            Debug.Log($"{name} 반응 : {entry.Result}");
+            if (entry.Result == ReactionType.ElectricShock && _stunnable != null) _stunnable.Stun();
+            if (entry.Result == ReactionType.Overload) Explode();
+            if (entry.Result == ReactionType.Steam && _aimDisruptable != null) _aimDisruptable.DisruptAim();
+            if (entry.Result == ReactionType.Steam) _tileGrid.ApplyState(FloorState.Steam, transform.position, _elementData.SteamRadius, _elementData.SteamDuration);
             return;
         }
         if (!Has(ElementType.Fire))
@@ -46,6 +53,34 @@ public class ElementStatus : MonoBehaviour
             _nextBurnTime = Time.time + _elementData.BurnInterval;
         }
         _timers[(int)type] = _elementData.GetDuration(type);
+    }
+
+    private void CacheComponents()
+    {
+        _target = GetComponent<IDamageable>();
+        _stunnable = GetComponent<IStunnable>();
+        _knockbackable = GetComponent<IKnockbackable>();
+        _aimDisruptable = GetComponent<IAimDisruptable>();
+    }
+    
+    private void Explode()
+    {
+        Vector2 center = transform.position;
+        if (_knockbackable != null) _knockbackable.Knockback(Vector2.zero, _elementData.KnockbackSpeed, _elementData.KnockbackDuration);
+        foreach (Collider2D hit in Physics2D.OverlapCircleAll(center, _elementData.OverloadRadius))
+        {
+            if (hit.TryGetComponent(out ElementStatus other) && other != this)
+            {
+                other.HitByExplosion(center);
+            }
+        }
+    }
+    
+    public void HitByExplosion(Vector2 center)
+    {
+        ReactionEntry entry = _reactionTable.FindByResult(ReactionType.Overload);
+        if (entry != null && entry.Damage > 0) _target.TakeDamage(entry.Damage);
+        if (_knockbackable != null) _knockbackable.Knockback((Vector2)transform.position - center, _elementData.KnockbackSpeed, _elementData.KnockbackDuration);
     }
 
     public bool Has(ElementType type) => _timers[(int)type] > 0;
