@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BossController : MonoBehaviour
+public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDisruptable
 {
     [SerializeField] private Transform _player;
     [SerializeField] private BossData _bossData;
@@ -16,9 +16,14 @@ public class BossController : MonoBehaviour
     private BossChargingState  _chargingState;
     private BossFireFieldState _fireFieldState;
     private BossFanShotState _fanShotState;
+    private BossStunState _stunState;
     private Rigidbody2D _rigidbody;
     private int _lastPatternIndex = -1;
     private int _random;
+    private float _stunImmuneUntil;
+    private float _knockbackEndTime;
+    private float _aimDisruptedUntil;
+
 
     public Transform Player => _player;
     public Transform ChargeLine => _chargeLine;
@@ -29,6 +34,7 @@ public class BossController : MonoBehaviour
     public BossChargingState ChargingState => _chargingState;
     public BossFireFieldState FireFieldState => _fireFieldState;
     public BossFanShotState FanShotState => _fanShotState;
+    public BossStunState StunState => _stunState;
     public ProjectilePool ProjectilePool => _projectilePool;
     public SpriteRenderer CoreRenderer => _coreRenderer;
 
@@ -39,6 +45,7 @@ public class BossController : MonoBehaviour
         _chargingState = new BossChargingState(this);
         _fireFieldState = new BossFireFieldState(this);
         _fanShotState = new BossFanShotState(this);
+        _stunState = new BossStunState(this);
         _rigidbody = GetComponent<Rigidbody2D>();
         ChangeState(_idleState);
         _pattern = new IBossState[] { _radialBurstState, _fanShotState, _chargingState, _fireFieldState };
@@ -58,6 +65,7 @@ public class BossController : MonoBehaviour
 
     public void Move(Vector2 direction, float speed)
     {
+        if (Time.time < _knockbackEndTime) return;
         Vector2 velocity = direction.normalized * speed;
         _rigidbody.linearVelocity = velocity;
     }
@@ -114,5 +122,39 @@ public class BossController : MonoBehaviour
             _bossData.BossBulletLifeTime,
             _bossData.ContactDamage
         );
+    }
+
+    public void Stun()
+    {
+        if (_currentState == _stunState) return;
+        if (Time.time < _stunImmuneUntil) return;
+        ChangeState(_stunState);
+    }
+
+    public void StartStunImmunity()
+    {
+        _stunImmuneUntil = Time.time + _bossData.StunImmunity;
+    }
+    
+    public void Knockback(Vector2 direction, float speed, float duration)
+    {
+        if (direction == Vector2.zero) direction = (Vector2)(transform.position - _player.position);
+        _rigidbody.linearVelocity = direction.normalized * speed;
+        _knockbackEndTime = Time.time + duration;
+    }
+    
+    public void DisruptAim()
+    {
+        _aimDisruptedUntil = Time.time + _bossData.AimDisruptDuration;
+    }
+    
+    public Vector2 GetAimPosition()
+    {
+        Vector2 position = _player.position;
+        if (Time.time < _aimDisruptedUntil || _tileGrid.HasState(FloorState.Steam, position))
+        {
+            position += Random.insideUnitCircle * _bossData.AimErrorRadius;
+        }
+        return position;
     }
 }

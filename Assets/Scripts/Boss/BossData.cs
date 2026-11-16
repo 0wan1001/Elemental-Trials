@@ -31,6 +31,10 @@ public class BossData : ScriptableObject
     [SerializeField] private int _fanVolleyCount;
     [SerializeField] private float _fanVolleyInterval;
     [SerializeField] private float _fanBulletSpeed;
+    [SerializeField] private float _stunDuration;
+    [SerializeField] private float _stunImmunity;
+    [SerializeField] private float _aimDisruptDuration;
+    [SerializeField] private float _aimErrorRadius;
 
     public int BossHealth => _bossHealth;
     public float BossMoveSpeed => _bossMoveSpeed;
@@ -60,4 +64,8 @@ public class BossData : ScriptableObject
     public int FanVolleyCount => _fanVolleyCount;
     public float FanVolleyInterval => _fanVolleyInterval;
     public float FanBulletSpeed => _fanBulletSpeed;
+    public float StunDuration => _stunDuration;
+    public float StunImmunity => _stunImmunity;
+    public float AimDisruptDuration => _aimDisruptDuration;
+    public float AimErrorRadius => _aimErrorRadius;
 }

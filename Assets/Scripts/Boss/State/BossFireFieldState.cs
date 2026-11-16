@@ -14,7 +14,7 @@ public class BossFireFieldState : IBossState
         _timer = 0f;
         _bossController.Move(Vector2.zero, 0);
 
-        Vector2 playerPosition = _bossController.Player.position;
+        Vector2 playerPosition = _bossController.GetAimPosition();
         Vector2 box = _bossController.BossData.FireFieldSpreadBox;
         for (int i=0; i < _bossController.BossData.FireFieldCount; i++)
         {

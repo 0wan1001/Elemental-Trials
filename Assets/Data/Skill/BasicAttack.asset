@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617251bc8f9ca9941b8d510de5da38f9, type: 3}
   m_Name: BasicAttack
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  _cooldown: 0.3
+  _cooldown: 0.2
   _damage: 1
   _boltSpeed: 14
   _boltLifeTime: 2

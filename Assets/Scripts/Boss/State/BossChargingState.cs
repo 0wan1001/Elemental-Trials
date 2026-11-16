@@ -17,7 +17,7 @@ public class BossChargingState : IBossState
         _timer = 0f;
         _isCharging = false;
         _bossController.Move(Vector2.zero, 0);
-        _direction = (_bossController.Player.position - _bossController.transform.position).normalized;
+        _direction = (_bossController.GetAimPosition() - (Vector2)_bossController.transform.position).normalized;
         _bossController.ChargeLine.gameObject.SetActive(true);
         _bossController.ChargeLine.right =  _direction;
     }
@@ -48,6 +48,6 @@ public class BossChargingState : IBossState
 
     public void Exit()
     {
-        
+        _bossController.ChargeLine.gameObject.SetActive(false);
     }
 }

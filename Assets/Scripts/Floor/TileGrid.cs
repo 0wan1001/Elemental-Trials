@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TileGrid : MonoBehaviour
@@ -6,7 +7,8 @@ public class TileGrid : MonoBehaviour
     public const int GRID_HEIGHT = 22;
     public const float PIXELS_PER_UNIT = 2f;
     private const int STATE_COUNT = 5;
-    
+    private const float STEAM_DURATION = 3f;
+
     private static readonly Color[] STATE_COLORS =
     {
         new Color(0.2f, 0.47f, 0.82f, 0.45f),   // Wet: 반투명 파랑
@@ -68,7 +70,6 @@ public class TileGrid : MonoBehaviour
     private void UpdateTimer()
     {
         float[,] warning = _timers[(int)FloorState.Warning];
-        float[,] fire = _timers[(int)FloorState.Fire];
 
         for (int x = 0; x < GRID_WIDTH; x++)
         {
@@ -86,7 +87,7 @@ public class TileGrid : MonoBehaviour
                     warning[x, y] -= Time.deltaTime;
                     if (warning[x, y] <= 0f)
                     {
-                        fire[x, y] = _pendingFireTime[x, y];
+                        SetCell(FloorState.Fire, x, y, _pendingFireTime[x, y]);
                     }
                 }
             }
@@ -126,7 +127,7 @@ public class TileGrid : MonoBehaviour
                 Vector2 centerWorldPos = _grid.GetCellCenterWorld(cell);
                 if (Vector2.Distance(centerWorldPos, worldPosition) <= radius)
                 {
-                    _timers[(int)state][x, y] = duration;
+                    SetCell(state, x, y, duration);
                 }
             }
         }
@@ -142,7 +143,7 @@ public class TileGrid : MonoBehaviour
                 Vector2 centerWorldPos = _grid.GetCellCenterWorld(cell);
                 if (Vector2.Distance(centerWorldPos, worldPosition) <= radius && Vector2.Angle(direction, centerWorldPos - worldPosition) <= maxAngle)
                 {
-                    _timers[(int)state][x, y] = duration;
+                    SetCell(state, x, y, duration);
                 }
             }
         }
@@ -169,5 +170,53 @@ public class TileGrid : MonoBehaviour
     {
         if(!TryGetCell(worldPosition, out Vector2Int cell)) return false;
         return _timers[(int)state][cell.x, cell.y] > 0;
-    }   
+    }
+    
+    private void SetCell(FloorState state, int x, int y, float duration)
+    {
+        float[,] wet = _timers[(int)FloorState.Wet];
+        float[,] fire = _timers[(int)FloorState.Fire];
+        bool waterOnFire = state == FloorState.Wet && fire[x, y] > 0f;
+        bool fireOnWater = state == FloorState.Fire && wet[x, y] > 0f;
+        if (waterOnFire || fireOnWater)
+        {
+            fire[x, y] = 0f;
+            if (!_isPool[x, y]) wet[x, y] = 0f;
+            _timers[(int)FloorState.Steam][x, y] = STEAM_DURATION;
+            return;
+        }
+        _timers[(int)state][x, y] = duration;
+    }
+    
+    public List<Vector2Int> Conduct(Vector2 worldPosition, int maxCells, float duration)
+    {
+        List<Vector2Int> result = new List<Vector2Int>();
+        if (!TryGetCell(worldPosition, out Vector2Int start)) return result;
+        float[,] wet = _timers[(int)FloorState.Wet];
+        float[,] electric = _timers[(int)FloorState.Electric];
+        if (wet[start.x, start.y] <= 0f) return result;
+
+        Vector2Int[] directions = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
+        bool[,] visited = new bool[GRID_WIDTH, GRID_HEIGHT];
+        Queue<Vector2Int> queue = new Queue<Vector2Int>();
+        queue.Enqueue(start);
+        visited[start.x, start.y] = true;
+
+        while (queue.Count > 0 && result.Count < maxCells)
+        {
+            Vector2Int cell = queue.Dequeue();
+            result.Add(cell);
+            electric[cell.x, cell.y] = duration;
+
+            foreach (Vector2Int direction in directions)
+            {
+                Vector2Int next = cell + direction;
+                if (next.x < 0 || next.x >= GRID_WIDTH || next.y < 0 || next.y >= GRID_HEIGHT) continue;
+                if (visited[next.x, next.y] || wet[next.x, next.y] <= 0f) continue;
+                visited[next.x, next.y] = true;
+                queue.Enqueue(next);
+            }
+        }
+        return result;
+    }
 }

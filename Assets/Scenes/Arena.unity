@@ -957,6 +957,7 @@ GameObject:
   - component: {fileID: 669640132}
   - component: {fileID: 669640133}
   - component: {fileID: 669640134}
+  - component: {fileID: 669640135}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1166,6 +1167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloorSensor
   _fireFieldDamage: 1
   _tileGrid: {fileID: 623737044}
+  _fireTickInterval: 0.4
 --- !u!114 &669640134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1185,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b89d756d6679b7848a50f1d62cfc707f, type: 2}
   - {fileID: 11400000, guid: 3e6f9a76c2787cb4a8e9089e669f3355, type: 2}
   - {fileID: 11400000, guid: c80de64fa56253641807beaa6eb3de72, type: 2}
+--- !u!114 &669640135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669640125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e40d5c5d4d63d4281703c7467d83dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementStatus
+  _elementData: {fileID: 11400000, guid: 5f64c8865015e6540923c9cb51250fca, type: 2}
+  _reactionTable: {fileID: 11400000, guid: 1e2cee093325f5845a2903ca7dd6ab51, type: 2}
+  _tileGrid: {fileID: 623737044}
 --- !u!114 &921811014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,6 +2413,8 @@ GameObject:
   - component: {fileID: 1669018854}
   - component: {fileID: 1669018857}
   - component: {fileID: 1669018858}
+  - component: {fileID: 1669018859}
+  - component: {fileID: 1669018860}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
@@ -2526,6 +2545,36 @@ MonoBehaviour:
   _coreRenderer: {fileID: 1788056639}
   _chargeLine: {fileID: 2058806533}
   _tileGrid: {fileID: 623737044}
+--- !u!114 &1669018859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669018853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e40d5c5d4d63d4281703c7467d83dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementStatus
+  _elementData: {fileID: 11400000, guid: 4ba4accfdc60b924c9a208d9f671ed75, type: 2}
+  _reactionTable: {fileID: 11400000, guid: cc8d0285bf4127440953cecdf9b0d4ac, type: 2}
+  _tileGrid: {fileID: 623737044}
+--- !u!114 &1669018860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669018853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f747909060ef0b74699d58c977b23bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloorSensor
+  _fireFieldDamage: 2
+  _tileGrid: {fileID: 623737044}
+  _fireTickInterval: 0.4
 --- !u!1 &1690631955
 GameObject:
   m_ObjectHideFlags: 0

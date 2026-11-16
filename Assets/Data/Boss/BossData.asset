@@ -28,7 +28,6 @@ MonoBehaviour:
   _chargeBulletCount: 10
   _chargeBulletSpeed: 3.75
   _chargeTimeMargin: 0.15
-  _fireFieldDamage: 1
   _fireFieldIndicator: 0.9
   _fireFieldDuration: 4
   _fireFieldCount: 4
@@ -41,3 +40,7 @@ MonoBehaviour:
   _fanVolleyCount: 3
   _fanVolleyInterval: 0.32
   _fanBulletSpeed: 6.5625
+  _stunDuration: 1.6
+  _stunImmunity: 5
+  _aimDisruptDuration: 3
+  _aimErrorRadius: 3.125

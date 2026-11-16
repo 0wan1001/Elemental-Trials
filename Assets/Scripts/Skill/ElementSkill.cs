@@ -5,6 +5,7 @@ public abstract class ElementSkill : ScriptableObject
     [SerializeField] private int _damage;
     [SerializeField] private float _cooldown;
     [SerializeField] private LayerMask _targetLayer;
+    [SerializeField] private ElementType _element;
     
     public int Damage => _damage;
     public float Cooldown => _cooldown;
@@ -22,6 +23,10 @@ public abstract class ElementSkill : ScriptableObject
             if (hit.TryGetComponent(out IDamageable target))
             {
                 target.TakeDamage(_damage);
+                if (hit.TryGetComponent(out ElementStatus status))
+                {
+                    status.Apply(_element);
+                }
             }
         }
     }

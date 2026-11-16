@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LightningSkillData", menuName = "ScriptableObjects/LightningSkillData")]
@@ -8,6 +9,8 @@ public class LightningSkill : ElementSkill
     [SerializeField] private float _hitRadius;
     [SerializeField] private float _electricRadius;
     [SerializeField] private float _electricDuration;
+    [SerializeField] private int _maxConductCells;
+    [SerializeField] private float _conductDuration;
 
     public override void Use(Vector2 playerPosition, Vector2 mousePosition, TileGrid grid)
     {
@@ -19,5 +22,15 @@ public class LightningSkill : ElementSkill
     {
         grid.ApplyState(FloorState.Electric, position, _electricRadius, _electricDuration);
         DamageInRange(position, _hitRadius, Vector2.right);
+        
+        List<Vector2Int> cells = grid.Conduct(position, _maxConductCells, _conductDuration);
+        if (cells.Count == 0) return;
+        foreach (ElementStatus status in FindObjectsByType<ElementStatus>(FindObjectsSortMode.None))
+        {
+            if (grid.TryGetCell(status.transform.position, out Vector2Int cell) && cells.Contains(cell))
+            {
+                status.Apply(ElementType.Lightning);
+            }
+        }
     }
 }
