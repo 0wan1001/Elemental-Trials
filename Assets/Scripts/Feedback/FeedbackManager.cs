@@ -7,7 +7,7 @@ public class FeedbackManager : MonoBehaviour
 {
     [SerializeField] private FeedbackData _data;
     [SerializeField] private PixelPerfectCamera _pixelCamera;
-    [SerializeField] private SpriteRenderer _bossBody;
+    [SerializeField] private SpriteFlash _bossFlash;
     [SerializeField] private Image _redScreen;
     [SerializeField] private Image _whiteFlash;
     [SerializeField] private Text _popupText;
@@ -18,21 +18,26 @@ public class FeedbackManager : MonoBehaviour
 
     private readonly Queue<DamageNumber> _numberPool = new Queue<DamageNumber>();
     private Vector3 _cameraOrigin;
-    private Color _bossColor;
     private bool _isHitstopping;
     private float _hitstopEndTime;
     private float _shakeStrength;
     private float _shakeStartTime;
-    private float _bossFlashEndTime;
     private float _redScreenEndTime;
     private float _whiteFlashEndTime;
+    private float _whiteFlashDuration;
+    private float _whiteFlashAlpha;
     private float _popupEndTime;
+    private Camera _camera;
+    private bool _isChargeZooming;
+    private Vector3 _chargeZoomFocus;
+    private float _chargeZoom;
+    private float _baseOrthographicSize;
 
     private void Awake()
     {
         Instance = this;
         _cameraOrigin = _pixelCamera.transform.position;
-        _bossColor = _bossBody.color;
+        _camera = _pixelCamera.GetComponent<Camera>();
         for (int i = 0; i < _data.DamageNumberPoolSize; i++)
         {
             ReturnNumber(CreateNumber());
@@ -58,12 +63,11 @@ public class FeedbackManager : MonoBehaviour
             Time.timeScale = 1f;
         }
 
+        UpdateChargeZoom();
         UpdateShake(now);
 
-        if (_bossBody != null) _bossBody.color = now < _bossFlashEndTime ? Color.white : _bossColor;
-
         SetAlpha(_redScreen, Fade(now, _redScreenEndTime, _data.RedScreenDuration) * _data.RedScreenAlpha);
-        SetAlpha(_whiteFlash, Fade(now, _whiteFlashEndTime, _data.LightningFlashDuration) * _data.LightningFlashAlpha);
+        SetAlpha(_whiteFlash, Fade(now, _whiteFlashEndTime, _whiteFlashDuration) * _whiteFlashAlpha);
 
         if (_popupText.gameObject.activeSelf && now >= _popupEndTime) _popupText.gameObject.SetActive(false);
     }
@@ -95,10 +99,10 @@ public class FeedbackManager : MonoBehaviour
 
     public void BossHit(int damage, ElementType element, Vector3 position)
     {
-        _bossFlashEndTime = Time.unscaledTime + _data.BossFlashDuration;
+        _bossFlash.Flash(_data.BossFlashDuration);
         DamageNumber number = _numberPool.Count > 0 ? _numberPool.Dequeue() : CreateNumber();
         number.gameObject.SetActive(true);
-        number.Show(this, damage, _data.GetColor(element), position, _data.DamageNumberDuration, _data.DamageNumberRise);
+        number.Show(this, damage, _data.GetColor(element), position + Vector3.up * _data.DamageNumberHeight, _data.DamageNumberDuration, _data.DamageNumberRise);
     }
 
     public void PlayerHit()
@@ -108,14 +112,43 @@ public class FeedbackManager : MonoBehaviour
         _redScreenEndTime = Time.unscaledTime + _data.RedScreenDuration;
     }
 
-    public void LightningFlash()
+    public void LightningFlash() => WhiteFlash(_data.LightningFlashDuration, _data.LightningFlashAlpha);
+
+    // 원소 스킬 풀차지 순간: 화면을 살짝 번쩍이고 약하게 흔든다
+    public void ChargeReady()
     {
-        _whiteFlashEndTime = Time.unscaledTime + _data.LightningFlashDuration;
+        WhiteFlash(_data.ChargeReadyFlashDuration, _data.ChargeReadyFlashAlpha);
+        Shake(_data.ChargeReadyShake);
+    }
+
+    private void WhiteFlash(float duration, float alpha)
+    {
+        // 더 센 번쩍임이 진행 중이면 덮어쓰지 않는다
+        float now = Time.unscaledTime;
+        if (now < _whiteFlashEndTime && Fade(now, _whiteFlashEndTime, _whiteFlashDuration) * _whiteFlashAlpha > alpha) return;
+        _whiteFlashDuration = duration;
+        _whiteFlashAlpha = alpha;
+        _whiteFlashEndTime = now + duration;
     }
 
     public void FireBallExplosion() => Shake(_data.FireBallShake);
 
     public void ChargeImpact() => Shake(_data.ChargeShake);
+
+    public void Teleport() => Shake(_data.TeleportShake);
+
+    // 탄 한 발이 대상에 맞은 순간: 아주 짧게 멈추고 약하게 흔든다
+    public void ProjectileHit(float hitstop, float shake)
+    {
+        if (hitstop > 0f) Hitstop(hitstop);
+        if (shake > 0f) Shake(shake);
+    }
+    
+    public void SetChargeZoom(bool isZooming, Vector3 focus)
+    {
+        _isChargeZooming = isZooming;
+        if (isZooming) _chargeZoomFocus = focus;
+    }
 
     public void ReturnNumber(DamageNumber number)
     {
@@ -147,8 +180,32 @@ public class FeedbackManager : MonoBehaviour
             offset.x = Mathf.Round(Random.Range(-strength, strength)) * pixel;
             offset.y = Mathf.Round(Random.Range(-strength, strength)) * pixel;
         }
-        _pixelCamera.transform.position = _cameraOrigin + offset;
+        _pixelCamera.transform.position = ChargeZoomCameraPosition() + offset;
     }
+    
+    private void UpdateChargeZoom()
+    {
+        if (_chargeZoom <= 0f && _isChargeZooming)
+        {
+            _baseOrthographicSize = _camera.orthographicSize;
+        }
+        _chargeZoom = Mathf.MoveTowards(_chargeZoom, _isChargeZooming ? 1f : 0f, _data.ChargeZoomSpeed * Time.unscaledDeltaTime);
+        _pixelCamera.enabled = _chargeZoom <= 0f;
+        if (_chargeZoom > 0f)
+        {
+            _camera.orthographicSize = _baseOrthographicSize * (1f - _data.ChargeZoomAmount * Smooth(_chargeZoom));
+        }
+    }
+
+    private Vector3 ChargeZoomCameraPosition()
+    {
+        if (_chargeZoom <= 0f) return _cameraOrigin;
+        Vector3 toFocus = _chargeZoomFocus - _cameraOrigin;
+        toFocus.z = 0f;
+        return _cameraOrigin + toFocus * (_data.ChargeZoomFollow * Smooth(_chargeZoom));
+    }
+    
+    private static float Smooth(float t) => t * t * (3f - 2f * t);
 
     private float CurrentShakeStrength(float now)
     {

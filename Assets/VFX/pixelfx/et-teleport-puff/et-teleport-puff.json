@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 32,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 64,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-teleport-puff.png",
+        "size": {
+            "w": 64,
+            "h": 128
+        },
+        "pixelfx": {
+            "id": "arcane/et-teleport-puff",
+            "fps": 12,
+            "loop": false,
+            "frameSize": [
+                32,
+                32
+            ],
+            "pivot": [
+                17,
+                25
+            ],
+            "contentSize": [
+                21,
+                19
+            ]
+        }
+    }
+}

@@ -22,7 +22,7 @@ public class BossIdleState : IBossState
         }
         else
         {
-            _timer += Time.deltaTime;
+            _timer += _bossController.DeltaTime;
         }
         
         Vector2 toPlayer = _bossController.Player.position - _bossController.transform.position;

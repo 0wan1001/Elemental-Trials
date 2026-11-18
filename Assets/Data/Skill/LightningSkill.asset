@@ -12,16 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58b273c399307c4ba027d0350935143, type: 3}
   m_Name: LightningSkill
   m_EditorClassIdentifier: Assembly-CSharp::LightningSkill
-  _damage: 10
-  _cooldown: 1.8
+  _damage: 15
+  _cooldown: 10
   _targetLayer:
     serializedVersion: 2
     m_Bits: 256
   _element: 2
+  _castVfx: {fileID: 7571664000357630825, guid: 8380141cf8014e84da711b2095de62b5, type: 3}
+  _castVfxLifetime: 0.5
+  _orbVfx: {fileID: 8854093508308720269, guid: cd14b5ae986d4e543bfa59fa796233de, type: 3}
+  _chargeVfx: {fileID: 4398057708789590009, guid: 32de2814ae5a4ea4b8209e9f0cd92e01, type: 3}
+  _chargedVfx: {fileID: 4613659827369160321, guid: f9288c63398a7c14e910885c29b076b3, type: 3}
+  _minChargeTime: 0.9
+  _selectVfx: {fileID: 7809990240383658051, guid: a22b28086aac2b549b53c8e1a1dcdaeb, type: 3}
+  _selectVfxLifetime: 0.4
+  _pointVfx: {fileID: 8624808798796793726, guid: 148e8447d16c5614a9f7baa75a804c39, type: 3}
+  _pointVfxLifetime: 0.5
+  _glowColor: {r: 1, g: 0.88, b: 0.25, a: 0.75}
+  _castFromStaff: 0
   _strikePrefab: {fileID: 3137172810875124363, guid: f896d308b68a6204cb30247137d29b73, type: 3}
   _indicatorTime: 0.3
-  _hitRadius: 0.875
-  _electricRadius: 0.375
-  _electricDuration: 0.5
+  _hitRadius: 1.25
   _maxConductCells: 160
   _conductDuration: 0.3
+  _strikeVfx: {fileID: 171890156442283898, guid: 167de7536b622eb46aad4ed6932165d5, type: 3}
+  _vfxLifetime: 0.42

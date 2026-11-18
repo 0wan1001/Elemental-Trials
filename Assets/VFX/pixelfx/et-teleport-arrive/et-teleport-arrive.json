@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 32,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 64,
+                "w": 32,
+                "h": 32
+            },
+            "duration": 50
+        }
+    ],
+    "meta": {
+        "image": "et-teleport-arrive.png",
+        "size": {
+            "w": 64,
+            "h": 128
+        },
+        "pixelfx": {
+            "id": "arcane/et-teleport-arrive",
+            "fps": 20,
+            "loop": false,
+            "frameSize": [
+                32,
+                32
+            ],
+            "pivot": [
+                15,
+                15
+            ],
+            "contentSize": [
+                29,
+                29
+            ]
+        }
+    }
+}

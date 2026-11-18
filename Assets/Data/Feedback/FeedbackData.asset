@@ -20,14 +20,22 @@ MonoBehaviour:
   _fireBallShake: 3
   _chargeShake: 5
   _playerHitShake: 4
+  _teleportShake: 1
   _shakeDuration: 0.2
-  _bossFlashDuration: 0.08
+  _chargeZoomAmount: 0.008
+  _chargeZoomFollow: 0.03
+  _chargeZoomSpeed: 8
+  _bossFlashDuration: 0.1
   _redScreenDuration: 0.35
   _redScreenAlpha: 0.35
   _lightningFlashDuration: 0.12
   _lightningFlashAlpha: 0.6
+  _chargeReadyFlashDuration: 0.08
+  _chargeReadyFlashAlpha: 0.15
+  _chargeReadyShake: 1
   _damageNumberDuration: 0.8
   _damageNumberRise: 0.75
+  _damageNumberHeight: 1.6
   _damageNumberPoolSize: 16
   _popupDuration: 0.8
   _fireColor: {r: 0.9490196, g: 0.3372549, b: 0.11372549, a: 1}

@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 64,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 128,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 50
+        }
+    ],
+    "meta": {
+        "image": "et-charge-ready.png",
+        "size": {
+            "w": 128,
+            "h": 256
+        },
+        "pixelfx": {
+            "id": "arcane/et-charge-ready",
+            "fps": 20,
+            "loop": false,
+            "frameSize": [
+                64,
+                64
+            ],
+            "pivot": [
+                32,
+                32
+            ],
+            "contentSize": [
+                34,
+                34
+            ]
+        }
+    }
+}

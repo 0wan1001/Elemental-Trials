@@ -1,0 +1,136 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 48,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 48,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        },
+        {
+            "frame": {
+                "x": 48,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 125
+        }
+    ],
+    "meta": {
+        "image": "et-floor-water.png",
+        "size": {
+            "w": 64,
+            "h": 64
+        },
+        "pixelfx": {
+            "id": "floor/et-floor-water",
+            "fps": 8,
+            "loop": true,
+            "frameSize": [
+                16,
+                16
+            ],
+            "pivot": [
+                8,
+                8
+            ],
+            "contentSize": [
+                16,
+                16
+            ]
+        }
+    }
+}

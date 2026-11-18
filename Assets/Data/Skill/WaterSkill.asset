@@ -12,12 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f0b7382ebd27d4a8cfc7ba52841dd0, type: 3}
   m_Name: WaterSkill
   m_EditorClassIdentifier: Assembly-CSharp::WaterSkill
-  _damage: 2
-  _cooldown: 1.4
+  _damage: 3
+  _cooldown: 8.75
   _targetLayer:
     serializedVersion: 2
     m_Bits: 256
   _element: 1
-  _range: 3.5
-  _halfAngle: 28.6
+  _castVfx: {fileID: 551514422961737028, guid: 99bb03f4c0c6b4c43a382a3daf3916f9, type: 3}
+  _castVfxLifetime: 0.5
+  _orbVfx: {fileID: 5944159485794772016, guid: f0c5db5ff7413a84ea7713833c0c7106, type: 3}
+  _chargeVfx: {fileID: 8258786288728038469, guid: 5bd6bfb5c56d24a44a012a0901afd000, type: 3}
+  _chargedVfx: {fileID: 6868248888195377467, guid: dba8f798a82bead4b87a6625a3237ba2, type: 3}
+  _minChargeTime: 0.9
+  _selectVfx: {fileID: 1403656236174744394, guid: 63a5907346a448441a8bed8df84ef15e, type: 3}
+  _selectVfxLifetime: 0.4
+  _pointVfx: {fileID: 6522024718714101230, guid: 09fe5715e02c30c4cabec0cabaa2cb4b, type: 3}
+  _pointVfxLifetime: 0.5
+  _glowColor: {r: 0.3, g: 0.7, b: 1, a: 0.75}
+  _range: 4.5
+  _halfAngle: 35
   _wetDuration: 7
+  _sprayVfx: {fileID: 3506447814732205119, guid: 236a27a4d2b069043b42ca426951fec9, type: 3}
+  _vfxLifetime: 0.6
+  _wetSpreadTime: 0.3

@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 8
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 8,
+                "w": 32,
+                "h": 8
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 32,
+                "h": 8
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 24,
+                "w": 32,
+                "h": 8
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 32,
+                "h": 8
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 40,
+                "w": 32,
+                "h": 8
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-dark-bolt.png",
+        "size": {
+            "w": 32,
+            "h": 64
+        },
+        "pixelfx": {
+            "id": "projectiles/et-dark-bolt",
+            "fps": 12,
+            "loop": true,
+            "frameSize": [
+                32,
+                8
+            ],
+            "pivot": [
+                22,
+                4
+            ],
+            "contentSize": [
+                21,
+                8
+            ]
+        }
+    }
+}

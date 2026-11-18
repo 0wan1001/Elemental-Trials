@@ -1,0 +1,55 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 67
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 67
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "duration": 67
+        }
+    ],
+    "meta": {
+        "image": "et-arcane-muzzle.png",
+        "size": {
+            "w": 32,
+            "h": 32
+        },
+        "pixelfx": {
+            "id": "arcane/et-arcane-muzzle",
+            "fps": 15,
+            "loop": false,
+            "frameSize": [
+                16,
+                16
+            ],
+            "pivot": [
+                8,
+                8
+            ],
+            "contentSize": [
+                16,
+                16
+            ]
+        }
+    }
+}

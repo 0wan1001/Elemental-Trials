@@ -28,7 +28,7 @@
             }
             else
             {
-                _timer += Time.deltaTime;
+                _timer += _bossController.DeltaTime;
             }
         }
 

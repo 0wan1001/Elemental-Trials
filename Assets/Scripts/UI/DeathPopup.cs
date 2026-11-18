@@ -9,6 +9,7 @@ public class DeathPopup : MonoBehaviour
     }
     public void OnRestart()
     {
+        ArenaIntro.IsRestart = true;
         SceneManager.LoadScene("Arena");
     }
     public void OnTitle()

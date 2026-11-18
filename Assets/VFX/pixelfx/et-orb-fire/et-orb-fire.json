@@ -1,0 +1,91 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 8,
+                "y": 0,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 0,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 24,
+                "y": 0,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 8,
+                "y": 16,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 16,
+                "w": 8,
+                "h": 16
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-orb-fire.png",
+        "size": {
+            "w": 32,
+            "h": 32
+        },
+        "pixelfx": {
+            "id": "arcane/et-orb-fire",
+            "fps": 12,
+            "loop": true,
+            "frameSize": [
+                8,
+                16
+            ],
+            "pivot": [
+                4,
+                11
+            ],
+            "contentSize": [
+                6,
+                15
+            ]
+        }
+    }
+}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerElementData
   m_EditorClassIdentifier: Assembly-CSharp::ElementData
   _fireDuration: 3
-  _waterDuration: 5
-  _lightningDuration: 2
+  _waterDuration: 3
+  _lightningDuration: 3
   _burnInterval: 1
   _burnDamage: 1
   _overloadRadius: 1.25
@@ -22,3 +22,6 @@ MonoBehaviour:
   _knockbackDuration: 0.15
   _steamRadius: 1.25
   _steamDuration: 3
+  _steamSlowMultiplier: 1
+  _steamSlowDuration: 0
+  _overloadBurnDuration: 0

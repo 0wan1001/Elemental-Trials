@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   _moveSpeed: 4.5
+  _acceleration: 14
+  _deceleration: 20
   _dashSpeed: 35
-  _dashCooldown: 1
+  _dashCooldown: 3.5
+  _maxDashCharges: 3
   _dashDuration: 0.06
   _dashInvincibleDuration: 0.3
   _playerMaxHP: 6

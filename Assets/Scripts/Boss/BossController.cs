@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDisruptable
+public class BossController : MonoBehaviour, IStunnable, IKnockbackable, ISlowable
 {
     [SerializeField] private Transform _player;
     [SerializeField] private BossData _bossData;
     [SerializeField] private ProjectilePool _projectilePool;
     [SerializeField] private SpriteRenderer _coreRenderer;
-    [SerializeField] private Transform _chargeLine;
+    [SerializeField] private ChargeLineView _chargeLineView;
     [SerializeField] private TileGrid _tileGrid;
+    [SerializeField] private BossDashView _dashView;
+    [SerializeField] private GameObject _dashImpactVfx;
+    [SerializeField] private float _dashImpactLifetime;
+    [SerializeField] private Vector2 _feetOffset;
 
     private IBossState[] _pattern;
     private IBossState _currentState;
@@ -22,12 +26,14 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDis
     private int _random;
     private float _stunImmuneUntil;
     private float _knockbackEndTime;
-    private float _aimDisruptedUntil;
+    private float _slowEndTime;
+    private float _slowMultiplier = 1f;
 
 
     public Transform Player => _player;
-    public Transform ChargeLine => _chargeLine;
+    public ChargeLineView ChargeLineView => _chargeLineView;
     public TileGrid TileGrid => _tileGrid;
+    public BossDashView DashView => _dashView;
     public BossData BossData => _bossData;
     public BossIdleState IdleState => _idleState;
     public BossRadialBurstState RadialBurstState => _radialBurstState;
@@ -35,8 +41,15 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDis
     public BossFireFieldState FireFieldState => _fireFieldState;
     public BossFanShotState FanShotState => _fanShotState;
     public BossStunState StunState => _stunState;
+    public float StunRemaining => _currentState == _stunState ? _stunState.Remaining : 0f;
+    public float StunImmuneRemaining => _currentState == _stunState ? 0f : Mathf.Max(0f, _stunImmuneUntil - Time.time);
+    // 느려짐 중에는 이동과 패턴 시간이 이 배율로 흐른다. 기절 시간은 그대로 흐른다.
+    public float SpeedScale => Time.time < _slowEndTime ? _slowMultiplier : 1f;
+    public float DeltaTime => Time.deltaTime * SpeedScale;
     public ProjectilePool ProjectilePool => _projectilePool;
     public SpriteRenderer CoreRenderer => _coreRenderer;
+    
+    public void SpawnDashImpact() => Destroy(Instantiate(_dashImpactVfx, (Vector2)transform.position + _feetOffset, Quaternion.identity), _dashImpactLifetime);
 
     private void Awake()
     {
@@ -66,7 +79,7 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDis
     public void Move(Vector2 direction, float speed)
     {
         if (Time.time < _knockbackEndTime) return;
-        Vector2 velocity = direction.normalized * speed;
+        Vector2 velocity = direction.normalized * speed * SpeedScale;
         _rigidbody.linearVelocity = velocity;
     }
 
@@ -118,7 +131,7 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDis
         Projectile projectile = _projectilePool.Get();
         projectile.Launch(transform.position,
             dir,
-            speed,
+            speed * SpeedScale,
             _bossData.BossBulletLifeTime,
             _bossData.ContactDamage
         );
@@ -143,18 +156,9 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, IAimDis
         _knockbackEndTime = Time.time + duration;
     }
     
-    public void DisruptAim()
+    public void Slow(float multiplier, float duration)
     {
-        _aimDisruptedUntil = Time.time + _bossData.AimDisruptDuration;
-    }
-    
-    public Vector2 GetAimPosition()
-    {
-        Vector2 position = _player.position;
-        if (Time.time < _aimDisruptedUntil || _tileGrid.HasState(FloorState.Steam, position))
-        {
-            position += Random.insideUnitCircle * _bossData.AimErrorRadius;
-        }
-        return position;
+        _slowMultiplier = multiplier;
+        _slowEndTime = Time.time + duration;
     }
 }

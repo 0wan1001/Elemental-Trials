@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 64,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 128,
+                "w": 64,
+                "h": 64
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-charge-basic.png",
+        "size": {
+            "w": 128,
+            "h": 256
+        },
+        "pixelfx": {
+            "id": "arcane/et-charge-basic",
+            "fps": 12,
+            "loop": true,
+            "frameSize": [
+                64,
+                64
+            ],
+            "pivot": [
+                32,
+                29
+            ],
+            "contentSize": [
+                44,
+                38
+            ]
+        }
+    }
+}

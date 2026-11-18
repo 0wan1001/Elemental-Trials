@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private float _hitInvincibleEndTime;
     private bool IsFaded => (int)(Time.time * 10) % 2 == 0;
     public bool IsDead {get; private set;}
+    public int CurrentHP => _playerHP;
+    public int MaxHP => _playerData.PlayerMaxHP;
     private bool IsHitInvincible => Time.time < _hitInvincibleEndTime;
     private PlayerController _playerController;
     private SpriteRenderer _spriteRenderer;

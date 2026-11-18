@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 128,
+                "h": 128
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 0,
+                "w": 128,
+                "h": 128
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 128,
+                "h": 128
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 128,
+                "w": 128,
+                "h": 128
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 256,
+                "w": 128,
+                "h": 128
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 256,
+                "w": 128,
+                "h": 128
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-overload.png",
+        "size": {
+            "w": 256,
+            "h": 512
+        },
+        "pixelfx": {
+            "id": "explosions/et-overload",
+            "fps": 12,
+            "loop": false,
+            "frameSize": [
+                128,
+                128
+            ],
+            "pivot": [
+                64,
+                64
+            ],
+            "contentSize": [
+                84,
+                84
+            ]
+        }
+    }
+}

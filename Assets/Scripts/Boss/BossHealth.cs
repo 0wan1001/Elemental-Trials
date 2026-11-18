@@ -7,6 +7,9 @@ public class BossHealth : MonoBehaviour, IDamageable
 
     private int _bossHp;
     public bool IsDead { get; private set; }
+    public int CurrentHP => Mathf.Max(_bossHp, 0);
+    public int MaxHP => _bossData.BossHealth;
+    public string BossName => _bossData.BossName;
 
     private void Awake()
     {

@@ -12,13 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010a031049bd4c941a2edb3e4802a3ae, type: 3}
   m_Name: FireSkill
   m_EditorClassIdentifier: Assembly-CSharp::FireSkill
-  _damage: 8
-  _cooldown: 1.2
+  _damage: 12
+  _cooldown: 7.5
   _targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  _element: 0
+  _castVfx: {fileID: 2418930496731636451, guid: 7a5f2ee0aaca82349bd9369275842493, type: 3}
+  _castVfxLifetime: 0.5
+  _orbVfx: {fileID: 941838940012837223, guid: aa9559457d627c949b49e771721c4457, type: 3}
+  _chargeVfx: {fileID: 6737201392032420323, guid: fbb4f2e473067d84db8fca1841b7630a, type: 3}
+  _chargedVfx: {fileID: 5679632278508358090, guid: 023eea92b884e4046a39c8763d57db99, type: 3}
+  _minChargeTime: 0.9
+  _selectVfx: {fileID: 1161863655516232515, guid: 4cd407ae87241ab4884c8d2382199230, type: 3}
+  _selectVfxLifetime: 0.4
+  _pointVfx: {fileID: 6935063754998525718, guid: c9bec031a33f4b744bf82a0f46643321, type: 3}
+  _pointVfxLifetime: 0.5
+  _glowColor: {r: 1, g: 0.45, b: 0.15, a: 0.75}
+  _castFromStaff: 1
   _fireBallPrefab: {fileID: 7785405789917211082, guid: 5d96db82bbd14144ba9eb08ed199530d, type: 3}
   _speed: 10
-  _explosionRadius: 1.125
-  _fireRadius: 0.875
+  _explosionRadius: 1.5
+  _fireRadius: 1.25
   _fireDuration: 3.5
+  _explosionVfx: {fileID: 8463269693892590069, guid: 9b8ba29b3687ac344acfa343da42fddd, type: 3}
+  _vfxLifetime: 0.5

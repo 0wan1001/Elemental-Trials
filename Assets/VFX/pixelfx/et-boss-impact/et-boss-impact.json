@@ -1,0 +1,91 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 0,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 64,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 128,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-boss-impact.png",
+        "size": {
+            "w": 256,
+            "h": 256
+        },
+        "pixelfx": {
+            "id": "boss/et-boss-impact",
+            "fps": 12,
+            "loop": false,
+            "frameSize": [
+                128,
+                64
+            ],
+            "pivot": [
+                64,
+                34
+            ],
+            "contentSize": [
+                103,
+                44
+            ]
+        }
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 0,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 64,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 128,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 128,
+                "y": 192,
+                "w": 128,
+                "h": 64
+            },
+            "duration": 50
+        }
+    ],
+    "meta": {
+        "image": "et-select-lightning.png",
+        "size": {
+            "w": 256,
+            "h": 256
+        },
+        "pixelfx": {
+            "id": "arcane/et-select-lightning",
+            "fps": 20,
+            "loop": false,
+            "frameSize": [
+                128,
+                64
+            ],
+            "pivot": [
+                64,
+                32
+            ],
+            "contentSize": [
+                91,
+                51
+            ]
+        }
+    }
+}

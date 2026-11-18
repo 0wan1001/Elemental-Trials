@@ -20,7 +20,7 @@ namespace ElementalTrials.Pixelfx.Editor
         private const string OUTPUT_ROOT = "Assets/VFX/pixelfx";
         private const string SETUP_SCRIPT = "Tools/pixelfx-setup.mjs";
         private const string CHECKOUT_DIR = "External/pixelfx";
-        private const int PIXELS_PER_UNIT = 16;
+        private const int PIXELS_PER_UNIT = 32; // 해상도 변경(PPU 32)에 맞춤
         // 이보다 옅은 픽셀(약 6%)은 지운다. 거의 안 보이는 빛·연기 때문에 여백이 안 잘리는 것을 막는다.
         private const byte MIN_ALPHA = 16;
 

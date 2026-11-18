@@ -1,0 +1,91 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 96,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 160,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 128,
+                "h": 32
+            },
+            "duration": 50
+        }
+    ],
+    "meta": {
+        "image": "et-teleport-streak.png",
+        "size": {
+            "w": 128,
+            "h": 256
+        },
+        "pixelfx": {
+            "id": "arcane/et-teleport-streak",
+            "fps": 20,
+            "loop": false,
+            "frameSize": [
+                128,
+                32
+            ],
+            "pivot": [
+                26,
+                17
+            ],
+            "contentSize": [
+                76,
+                20
+            ]
+        }
+    }
+}

@@ -17,20 +17,21 @@ public class BossChargingState : IBossState
         _timer = 0f;
         _isCharging = false;
         _bossController.Move(Vector2.zero, 0);
-        _direction = (_bossController.GetAimPosition() - (Vector2)_bossController.transform.position).normalized;
-        _bossController.ChargeLine.gameObject.SetActive(true);
-        _bossController.ChargeLine.right =  _direction;
+        _direction = ((Vector2)_bossController.Player.position - (Vector2)_bossController.transform.position).normalized;
+        _bossController.ChargeLineView.Show(_direction, _bossController.BossData.ChargeDistance);
     }
 
     public void Tick()
     {
-        _timer += Time.deltaTime;
+        _timer += _bossController.DeltaTime;
+        if (!_isCharging) _bossController.ChargeLineView.SetProgress(_timer / _bossController.BossData.ChargeIndicator);
         if (_bossController.BossData.ChargeIndicator < _timer && !_isCharging)
         {
-            _bossController.ChargeLine.gameObject.SetActive(false);
+            _bossController.ChargeLineView.Hide();
             _bossPosition = _bossController.transform.position;
             _bossController.Move(_direction, _bossController.BossData.ChargeSpeed);
             _isCharging = true;
+            _bossController.DashView.Begin(_direction);
         }
 
         if (_isCharging)
@@ -40,7 +41,9 @@ public class BossChargingState : IBossState
                 + _bossController.BossData.ChargeTimeMargin)
             {
                 _bossController.Move(Vector2.zero, 0);
+                _bossController.DashView.End();
                 FeedbackManager.Instance.ChargeImpact();
+                _bossController.SpawnDashImpact();
                 _bossController.FireRadial(_bossController.BossData.ChargeBulletCount, _bossController.BossData.ChargeBulletSpeed);
                 _bossController.ChangeState(_bossController.IdleState);
             }
@@ -49,6 +52,7 @@ public class BossChargingState : IBossState
 
     public void Exit()
     {
-        _bossController.ChargeLine.gameObject.SetActive(false);
+        _bossController.ChargeLineView.Hide();
+        _bossController.DashView.End();
     }
 }

@@ -20,11 +20,11 @@ public class BossFanShotState : IBossState
 
     public void Tick()
     {
-        _timer += Time.deltaTime;
+        _timer += _bossController.DeltaTime;
         
         if (_timer >= _bossController.BossData.FanShotIndicator + _volleyCount * _bossController.BossData.FanVolleyInterval)
         {
-            Vector2 toPlayer = _bossController.GetAimPosition() - (Vector2)_bossController.transform.position;
+            Vector2 toPlayer = (Vector2)_bossController.Player.position - (Vector2)_bossController.transform.position;
             _bossController.FireFan(toPlayer, _bossController.BossData.FanBulletCount, _bossController.BossData.FanSpreadAngle, _bossController.BossData.FanBulletSpeed);
             _volleyCount++;
 

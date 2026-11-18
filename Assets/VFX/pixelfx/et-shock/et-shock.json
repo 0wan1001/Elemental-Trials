@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 32,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 64,
+                "y": 0,
+                "w": 32,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 96,
+                "y": 0,
+                "w": 32,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 32,
+                "h": 64
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 64,
+                "w": 32,
+                "h": 64
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-shock.png",
+        "size": {
+            "w": 128,
+            "h": 128
+        },
+        "pixelfx": {
+            "id": "lightning/et-shock",
+            "fps": 12,
+            "loop": true,
+            "frameSize": [
+                32,
+                64
+            ],
+            "pivot": [
+                14,
+                31
+            ],
+            "contentSize": [
+                29,
+                35
+            ]
+        }
+    }
+}
