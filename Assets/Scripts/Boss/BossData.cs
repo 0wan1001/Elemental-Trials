@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BossData", menuName = "ScriptableObjects/BossData")]
 public class BossData : ScriptableObject
 {
+    [SerializeField] private string _bossName;
     [SerializeField] private int _bossHealth;
     [SerializeField] private float _bossMoveSpeed;
     [SerializeField] private float _approachStartDistance;
@@ -33,9 +34,8 @@ public class BossData : ScriptableObject
     [SerializeField] private float _fanBulletSpeed;
     [SerializeField] private float _stunDuration;
     [SerializeField] private float _stunImmunity;
-    [SerializeField] private float _aimDisruptDuration;
-    [SerializeField] private float _aimErrorRadius;
 
+    public string BossName => _bossName;
     public int BossHealth => _bossHealth;
     public float BossMoveSpeed => _bossMoveSpeed;
     public float ApproachStartDistance => _approachStartDistance;
@@ -66,6 +66,4 @@ public class BossData : ScriptableObject
     public float FanBulletSpeed => _fanBulletSpeed;
     public float StunDuration => _stunDuration;
     public float StunImmunity => _stunImmunity;
-    public float AimDisruptDuration => _aimDisruptDuration;
-    public float AimErrorRadius => _aimErrorRadius;
 }

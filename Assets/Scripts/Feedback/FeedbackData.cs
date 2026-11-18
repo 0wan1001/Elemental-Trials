@@ -14,7 +14,13 @@ public class FeedbackData : ScriptableObject
     [SerializeField] private float _fireBallShake;
     [SerializeField] private float _chargeShake;
     [SerializeField] private float _playerHitShake;
+    [SerializeField] private float _teleportShake;
     [SerializeField] private float _shakeDuration;
+
+    [Header("차징 카메라 확대")]
+    [SerializeField] private float _chargeZoomAmount;
+    [SerializeField] private float _chargeZoomFollow;
+    [SerializeField] private float _chargeZoomSpeed;
 
     [Header("플래시 (초)")]
     [SerializeField] private float _bossFlashDuration;
@@ -23,9 +29,15 @@ public class FeedbackData : ScriptableObject
     [SerializeField] private float _lightningFlashDuration;
     [SerializeField] private float _lightningFlashAlpha;
 
+    [Header("원소 스킬 풀차지")]
+    [SerializeField] private float _chargeReadyFlashDuration;
+    [SerializeField] private float _chargeReadyFlashAlpha;
+    [SerializeField] private float _chargeReadyShake;
+
     [Header("데미지 숫자")]
     [SerializeField] private float _damageNumberDuration;
     [SerializeField] private float _damageNumberRise;
+    [SerializeField] private float _damageNumberHeight;
     [SerializeField] private int _damageNumberPoolSize;
 
     [Header("반응 팝업")]
@@ -45,14 +57,22 @@ public class FeedbackData : ScriptableObject
     public float FireBallShake => _fireBallShake;
     public float ChargeShake => _chargeShake;
     public float PlayerHitShake => _playerHitShake;
+    public float TeleportShake => _teleportShake;
     public float ShakeDuration => _shakeDuration;
+    public float ChargeZoomAmount => _chargeZoomAmount;
+    public float ChargeZoomFollow => _chargeZoomFollow;
+    public float ChargeZoomSpeed => _chargeZoomSpeed;
     public float BossFlashDuration => _bossFlashDuration;
     public float RedScreenDuration => _redScreenDuration;
     public float RedScreenAlpha => _redScreenAlpha;
     public float LightningFlashDuration => _lightningFlashDuration;
     public float LightningFlashAlpha => _lightningFlashAlpha;
+    public float ChargeReadyFlashDuration => _chargeReadyFlashDuration;
+    public float ChargeReadyFlashAlpha => _chargeReadyFlashAlpha;
+    public float ChargeReadyShake => _chargeReadyShake;
     public float DamageNumberDuration => _damageNumberDuration;
     public float DamageNumberRise => _damageNumberRise;
+    public float DamageNumberHeight => _damageNumberHeight;
     public int DamageNumberPoolSize => _damageNumberPoolSize;
     public float PopupDuration => _popupDuration;
 

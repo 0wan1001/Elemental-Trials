@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: 5a8fec3cc763dd9489676e5d4e3604b0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6173912827513182311
+    second: Ancient_Guardian_Runes_Light_0
+  - first:
+      213: -5227252982205956615
+    second: Ancient_Guardian_Runes_Light_1
+  - first:
+      213: 7893084098798561711
+    second: Ancient_Guardian_Runes_Light_2
+  - first:
+      213: -69569371894255935
+    second: Ancient_Guardian_Runes_Light_3
+  - first:
+      213: -6064950369421405053
+    second: Ancient_Guardian_Runes_Light_4
+  - first:
+      213: 2647832761853284394
+    second: Ancient_Guardian_Runes_Light_5
+  - first:
+      213: -3424943274612456502
+    second: Ancient_Guardian_Runes_Light_6
+  - first:
+      213: 4494470329475028978
+    second: Ancient_Guardian_Runes_Light_7
+  - first:
+      213: -4195138601491387098
+    second: Ancient_Guardian_Runes_Light_8
+  - first:
+      213: -1873263908380644463
+    second: Ancient_Guardian_Runes_Light_9
+  - first:
+      213: 8565069219895908877
+    second: Ancient_Guardian_Runes_Light_10
+  - first:
+      213: -7664723841738866180
+    second: Ancient_Guardian_Runes_Light_11
+  - first:
+      213: -8380045789849043277
+    second: Ancient_Guardian_Runes_Light_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 3
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768962e71052ea550800000000000000
+      internalID: 6173912827513182311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 3
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd338c9b111577b0800000000000000
+      internalID: -5227252982205956615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_2
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 3
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa92c232b2ed98d60800000000000000
+      internalID: 7893084098798561711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_3
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 3
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ceeefc5607d80ff0800000000000000
+      internalID: -69569371894255935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_4
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 3
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3845342c5c7f4dba0800000000000000
+      internalID: -6064950369421405053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_5
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 3
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2018ea3eddfeb420800000000000000
+      internalID: 2647832761853284394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_6
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 3
+        width: 6
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac38cd4ec382870d0800000000000000
+      internalID: -3424943274612456502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_7
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 3
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f754e1b3f09f5e30800000000000000
+      internalID: 4494470329475028978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_8
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 3
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62da3923bafd7c5c0800000000000000
+      internalID: -4195138601491387098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_9
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 3
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b696a7664d006e0800000000000000
+      internalID: -1873263908380644463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_10
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 3
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a1788631d3dd670800000000000000
+      internalID: 8565069219895908877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_11
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 3
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf100bf764e61a590800000000000000
+      internalID: -7664723841738866180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ancient_Guardian_Runes_Light_12
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 3
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be3a86e0c814bb80800000000000000
+      internalID: -8380045789849043277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ancient_Guardian_Runes_Light_0: 6173912827513182311
+      Ancient_Guardian_Runes_Light_1: -5227252982205956615
+      Ancient_Guardian_Runes_Light_10: 8565069219895908877
+      Ancient_Guardian_Runes_Light_11: -7664723841738866180
+      Ancient_Guardian_Runes_Light_12: -8380045789849043277
+      Ancient_Guardian_Runes_Light_2: 7893084098798561711
+      Ancient_Guardian_Runes_Light_3: -69569371894255935
+      Ancient_Guardian_Runes_Light_4: -6064950369421405053
+      Ancient_Guardian_Runes_Light_5: 2647832761853284394
+      Ancient_Guardian_Runes_Light_6: -3424943274612456502
+      Ancient_Guardian_Runes_Light_7: 4494470329475028978
+      Ancient_Guardian_Runes_Light_8: -4195138601491387098
+      Ancient_Guardian_Runes_Light_9: -1873263908380644463
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

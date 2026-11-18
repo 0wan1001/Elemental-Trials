@@ -1,0 +1,82 @@
+{
+    "frames": [
+        {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 0,
+                "w": 16,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 16,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 48,
+                "y": 0,
+                "w": 16,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 16,
+                "h": 32
+            },
+            "duration": 83
+        },
+        {
+            "frame": {
+                "x": 16,
+                "y": 32,
+                "w": 16,
+                "h": 32
+            },
+            "duration": 83
+        }
+    ],
+    "meta": {
+        "image": "et-orb-lightning.png",
+        "size": {
+            "w": 64,
+            "h": 64
+        },
+        "pixelfx": {
+            "id": "arcane/et-orb-lightning",
+            "fps": 12,
+            "loop": true,
+            "frameSize": [
+                16,
+                32
+            ],
+            "pivot": [
+                8,
+                16
+            ],
+            "contentSize": [
+                11,
+                17
+            ]
+        }
+    }
+}

@@ -23,6 +23,8 @@ public class FireBall : MonoBehaviour
         _skill = skill;
         _grid = grid;
         _rigidbody2D.linearVelocity = (target - start).normalized * speed;
+        Vector2 direction = target - start;
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         _arriveTime = Time.time + Vector2.Distance(start, target) / speed;
     }
 

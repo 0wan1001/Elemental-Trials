@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,23 +6,11 @@ public class TileGrid : MonoBehaviour
 {
     public const int GRID_WIDTH = 40;
     public const int GRID_HEIGHT = 22;
-    public const float PIXELS_PER_UNIT = 2f;
     private const int STATE_COUNT = 5;
     private const float STEAM_DURATION = 3f;
 
-    private static readonly Color[] STATE_COLORS =
-    {
-        new Color(0.2f, 0.47f, 0.82f, 0.45f),   // Wet: 반투명 파랑
-        new Color(1f, 0.35f, 0.08f, 0.6f),      // Fire: 주황
-        new Color(0.88f, 0.91f, 0.94f, 0.5f),   // Steam: 흰 회색
-        new Color(0.55f, 0.94f, 1f, 0.7f),      // Electric: 밝은 하늘색
-        new Color(1f, 0.2f, 0.16f, 0.4f),       // Warning: 빨강
-    };
-
-    [SerializeField] private SpriteRenderer _floorOverlay;
     [SerializeField] private RectInt[] _poolAreas;
-    
-    private Texture2D _floorTexture;
+
     private Grid _grid;
     
     private float[][,] _timers = new float[STATE_COUNT][,];
@@ -45,20 +34,18 @@ public class TileGrid : MonoBehaviour
         for (int s = 0; s < STATE_COUNT; s++)
         {
             _timers[s] = new float[GRID_WIDTH, GRID_HEIGHT];
-            
-        }
 
-        _floorTexture = new Texture2D(GRID_WIDTH, GRID_HEIGHT);
-        _floorTexture.filterMode = FilterMode.Point;
-        _floorOverlay.sprite = Sprite.Create(_floorTexture, new Rect(0, 0, GRID_WIDTH, GRID_HEIGHT), Vector2.zero,
-            PIXELS_PER_UNIT);
+        }
     }
 
     private void Update()
     {
         UpdateTimer();
-        DrawFloor();
     }
+
+    public float GetTimer(FloorState state, int x, int y) => _timers[(int)state][x, y];
+
+    public bool IsPool(int x, int y) => _isPool[x, y];
 
     public bool TryGetCell(Vector2 worldPosition, out Vector2Int cellNumber)
     {
@@ -94,29 +81,6 @@ public class TileGrid : MonoBehaviour
         }
     }
 
-    private void DrawFloor()
-    {
-        float blink = 0.2f + 0.25f * (Mathf.Sin(Time.time * 20f) * 0.5f + 0.5f);
-
-        for (int x = 0; x < GRID_WIDTH; x++)
-        {
-            for (int y = 0; y < GRID_HEIGHT; y++)
-            {
-                Color color = Color.clear;
-                
-                for (int s = 0; s < STATE_COUNT; s++)
-                {
-                    if (_timers[s][x, y] > 0f) color = STATE_COLORS[s];
-                }
-
-                if (_timers[(int)FloorState.Warning][x, y] > 0f) color.a = blink;
-
-                _floorTexture.SetPixel(x, y, color);
-            }
-        }
-        _floorTexture.Apply();
-    }
-
     public void ApplyState(FloorState state, Vector2 worldPosition, float radius, float duration)
     {
         for (int x = 0; x < GRID_WIDTH; x++)
@@ -132,20 +96,34 @@ public class TileGrid : MonoBehaviour
             }
         }
     }
-
-    public void ApplyStateInCone(FloorState state, Vector2 worldPosition, float radius, Vector2 direction, float maxAngle, float duration)
+    
+    public void SpreadStateInCone(FloorState state, Vector2 worldPosition, float radius, Vector2 direction, float maxAngle, float duration, float spreadTime)
     {
-        for (int x = 0; x < GRID_WIDTH; x++)
+        StartCoroutine(SpreadStateInConeRoutine(state, worldPosition, radius, direction, maxAngle, duration, spreadTime));
+    }
+    
+    private IEnumerator SpreadStateInConeRoutine(FloorState state, Vector2 worldPosition, float radius, Vector2 direction, float maxAngle, float duration, float spreadTime)
+    {
+        float elapsed = 0f;
+        float previousRadius = -1f;
+        while (previousRadius < radius)
         {
-            for (int y = 0; y < GRID_HEIGHT; y++)
+            elapsed += Time.deltaTime;
+            float currentRadius = spreadTime > 0f ? Mathf.Min(radius, radius * elapsed / spreadTime) : radius;
+            for (int x = 0; x < GRID_WIDTH; x++)
             {
-                Vector3Int cell = new Vector3Int(x, y, 0);
-                Vector2 centerWorldPos = _grid.GetCellCenterWorld(cell);
-                if (Vector2.Distance(centerWorldPos, worldPosition) <= radius && Vector2.Angle(direction, centerWorldPos - worldPosition) <= maxAngle)
+                for (int y = 0; y < GRID_HEIGHT; y++)
                 {
-                    SetCell(state, x, y, duration);
+                    Vector2 centerWorldPos = _grid.GetCellCenterWorld(new Vector3Int(x, y, 0));
+                    float distance = Vector2.Distance(centerWorldPos, worldPosition);
+                    if (distance > previousRadius && distance <= currentRadius && Vector2.Angle(direction, centerWorldPos - worldPosition) <= maxAngle)
+                    {
+                        SetCell(state, x, y, duration);
+                    }
                 }
             }
+            previousRadius = currentRadius;
+            yield return null;
         }
     }
 

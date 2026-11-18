@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c68326dfd2b66b4b9b4f9870106f487, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  _bossName: "\uACE0\uB300\uC758 \uC218\uD638\uC790"
   _bossHealth: 500
-  _bossMoveSpeed: 1.25
+  _bossMoveSpeed: 1.1
   _approachStartDistance: 5
   _retreatStartDistance: 2.8
   _patternInterval: 0.9
@@ -40,7 +41,5 @@ MonoBehaviour:
   _fanVolleyCount: 3
   _fanVolleyInterval: 0.32
   _fanBulletSpeed: 6.5625
-  _stunDuration: 1.6
-  _stunImmunity: 5
-  _aimDisruptDuration: 3
-  _aimErrorRadius: 3.125
+  _stunDuration: 3
+  _stunImmunity: 10

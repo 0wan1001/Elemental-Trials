@@ -5,6 +5,8 @@ public class BossStunState : IBossState
     private BossController _bossController;
     private float _timer;
     
+    public float Remaining => Mathf.Max(0f, _bossController.BossData.StunDuration - _timer);
+    
     public void Enter()
     {
         _timer = 0;

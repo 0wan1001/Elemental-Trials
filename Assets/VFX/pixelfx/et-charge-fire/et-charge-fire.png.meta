@@ -1,0 +1,411 @@
+fileFormatVersion: 2
+guid: d9915c83d389d7249b966df41ce07980
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8493709666611619666
+    second: et-charge-fire_0
+  - first:
+      213: 103075031725233327
+    second: et-charge-fire_1
+  - first:
+      213: 7722922145402518736
+    second: et-charge-fire_2
+  - first:
+      213: 6413061421998454542
+    second: et-charge-fire_3
+  - first:
+      213: -3883285554780675807
+    second: et-charge-fire_4
+  - first:
+      213: 3201879799243018950
+    second: et-charge-fire_5
+  - first:
+      213: 8230674756626231491
+    second: et-charge-fire_6
+  - first:
+      213: -8473411970843912977
+    second: et-charge-fire_7
+  - first:
+      213: 460205783382091636
+    second: et-charge-fire_8
+  - first:
+      213: -3763692479502205697
+    second: et-charge-fire_9
+  - first:
+      213: -3880760626017272390
+    second: et-charge-fire_10
+  - first:
+      213: -7166708895238550069
+    second: et-charge-fire_11
+  - first:
+      213: -8595919637853581928
+    second: et-charge-fire_12
+  - first:
+      213: -5439693818164813888
+    second: et-charge-fire_13
+  - first:
+      213: -4744360190140722840
+    second: et-charge-fire_14
+  - first:
+      213: -5581918293082454093
+    second: et-charge-fire_15
+  - first:
+      213: -4774047635686271362
+    second: et-charge-fire_16
+  - first:
+      213: 6729037650415273366
+    second: et-charge-fire_17
+  - first:
+      213: -6688952447456173099
+    second: et-charge-fire_18
+  - first:
+      213: -1005584827781239897
+    second: et-charge-fire_19
+  - first:
+      213: 1731062258080311791
+    second: et-charge-fire_20
+  - first:
+      213: -5157377652106161754
+    second: et-charge-fire_21
+  - first:
+      213: 7488030997043874423
+    second: et-charge-fire_22
+  - first:
+      213: 1975157799244225508
+    second: et-charge-fire_23
+  - first:
+      213: -4395342148904366868
+    second: et-charge-fire_24
+  - first:
+      213: 3826502366633853554
+    second: et-charge-fire_25
+  - first:
+      213: -6399875162570536440
+    second: et-charge-fire_26
+  - first:
+      213: 9164444362463410533
+    second: et-charge-fire_27
+  - first:
+      213: -7551775124110937375
+    second: et-charge-fire_28
+  - first:
+      213: 5255839546760675554
+    second: et-charge-fire_29
+  - first:
+      213: 4915992900149536830
+    second: et-charge-fire_30
+  - first:
+      213: -1894825804385851289
+    second: et-charge-fire_31
+  - first:
+      213: 1200425798805580388
+    second: et-charge-fire_32
+  - first:
+      213: 528663152596318849
+    second: et-charge-fire_33
+  - first:
+      213: 7111292314873293662
+    second: et-charge-fire_34
+  - first:
+      213: 5020166321643247682
+    second: et-charge-fire_35
+  - first:
+      213: -7929462025110727384
+    second: et-charge-fire_36
+  - first:
+      213: -7923207490283553791
+    second: et-charge-fire_37
+  - first:
+      213: -669071234694876067
+    second: et-charge-fire_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: et-charge-fire_000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4de8dfaff550fe64fac984208fd8a0e6
+      internalID: 1961232072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: et-charge-fire_001
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f256047628138e4dba133e008af1753
+      internalID: 334353595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: et-charge-fire_002
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2a1fc73a6c6644c8b3799a03684d9a
+      internalID: -974905230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: et-charge-fire_003
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3f4219b038eeb49989fb4c8cbafa8c
+      internalID: -1373718608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: et-charge-fire_004
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec1800f22ed6894b9b4a0b5690b2017
+      internalID: 2037890011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: et-charge-fire_005
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7250c40933d8aac4aaeb08e2757f674b
+      internalID: 1995851597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 895b23834ff0cc6469dceb07484f4beb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      et-charge-fire_000: 1961232072
+      et-charge-fire_001: 334353595
+      et-charge-fire_002: -974905230
+      et-charge-fire_003: -1373718608
+      et-charge-fire_004: 2037890011
+      et-charge-fire_005: 1995851597
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

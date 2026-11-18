@@ -2,7 +2,7 @@
 // 사용: node Tools/pixelfx-setup.mjs
 // 버전을 올릴 때는 PIXELFX_COMMIT만 바꾸고 THIRD_PARTY_NOTICES.md의 커밋도 같이 고친다.
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -28,6 +28,13 @@ try { head = git("rev-parse", "HEAD"); } catch { /* 아직 체크아웃 전 */ }
 if (head !== PIXELFX_COMMIT) {
   git("fetch", "-q", "--depth", "1", "origin", PIXELFX_COMMIT);
   git("checkout", "-q", "--detach", PIXELFX_COMMIT);
+}
+
+// 이 프로젝트에서 만든 효과(Tools/pixelfx-fx/<분류>/*.js)를 체크아웃에 복사하고 목록을 다시 만든다
+const customDir = join(root, "Tools", "pixelfx-fx");
+if (existsSync(customDir)) {
+  cpSync(customDir, join(dir, "src", "fx"), { recursive: true });
+  execFileSync("node", ["tools/index.mjs"], { cwd: dir, stdio: "ignore" });
 }
 
 console.log(`pixelfx ready: ${dir} @ ${git("rev-parse", "--short", "HEAD")}`);

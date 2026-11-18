@@ -13,6 +13,9 @@ public class ElementData : ScriptableObject
     [SerializeField] private float _knockbackDuration;
     [SerializeField] private float _steamRadius;
     [SerializeField] private float _steamDuration;
+    [SerializeField] private float _steamSlowMultiplier;
+    [SerializeField] private float _steamSlowDuration;
+    [SerializeField] private float _overloadBurnDuration;
 
     public float FireDuration => _fireDuration;
     public float WaterDuration => _waterDuration;
@@ -24,6 +27,9 @@ public class ElementData : ScriptableObject
     public float KnockbackDuration => _knockbackDuration;
     public float SteamRadius => _steamRadius;
     public float SteamDuration => _steamDuration;
+    public float SteamSlowMultiplier => _steamSlowMultiplier;
+    public float SteamSlowDuration => _steamSlowDuration;
+    public float OverloadBurnDuration => _overloadBurnDuration;
 
     public float GetDuration(ElementType type)
     {

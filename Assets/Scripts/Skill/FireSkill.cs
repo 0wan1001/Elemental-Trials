@@ -8,6 +8,8 @@ public class FireSkill : ElementSkill
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _fireRadius;
     [SerializeField] private float _fireDuration;
+    [SerializeField] private GameObject _explosionVfx;
+    [SerializeField] private float _vfxLifetime;
     
     public override void Use(Vector2 playerPosition, Vector2 mousePosition, TileGrid grid)
     {
@@ -18,6 +20,7 @@ public class FireSkill : ElementSkill
     public void Explode(Vector2 position, TileGrid grid)
     {
         FeedbackManager.Instance.FireBallExplosion();
+        Destroy(Instantiate(_explosionVfx, position, Quaternion.identity), _vfxLifetime);
         grid.ApplyState(FloorState.Fire, position, _fireRadius, _fireDuration);
         DamageInRange(position, _explosionRadius, Vector2.right);
     }

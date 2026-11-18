@@ -4,7 +4,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IKnockbackable
 {
     [SerializeField] private PlayerData _playerData;
-    
+    [SerializeField] private GameObject _teleportVfx;
+    [SerializeField] private float _vfxLifetime;
+    [SerializeField] private Vector2 _teleportVfxOffset;
+    [SerializeField] private GameObject _teleportArriveVfx;
+    [SerializeField] private float _arriveVfxLifetime;
+
     private GameInput _gameInput;
     private Rigidbody2D _rigidbody;
     private Camera _camera;
@@ -15,21 +20,30 @@ public class PlayerController : MonoBehaviour, IKnockbackable
     private PlayerMoveType _moveType;
     private Vector2 _dashDirection;
     private float _dashEndTime;
-    private float _nextDashTime;
+    private int _dashCharges;
+    private float _dashRechargeTimer;
     private float _invincibleEndTime;
     private float _knockbackEndTime;
 
     public Vector2 AimDirection => _aimDirection;
     public Vector2 MousePosition => _mousePosition;
     public bool IsAttackPressed => _gameInput.Player.Attack.IsPressed();
+    public bool IsAttackReleased => _gameInput.Player.Attack.WasReleasedThisFrame();
+    public bool IsAttackTriggered => _gameInput.Player.Attack.WasPressedThisFrame();
     public bool IsInvincible => Time.time < _invincibleEndTime;
+    public float MoveSpeed => _playerData.MoveSpeed;
     public bool IsDashing => _moveType == PlayerMoveType.Dash;
-    private bool CanDash => _gameInput.Player.Dash.WasPerformedThisFrame() && _moveType == PlayerMoveType.Normal && Time.time >= _nextDashTime;
+    public int DashCharges => _dashCharges;
+    public int MaxDashCharges => _playerData.MaxDashCharges;
+    public float DashCooldown => _playerData.DashCooldown;
+    public float DashRechargeRemaining => _dashCharges >= _playerData.MaxDashCharges ? 0f : _playerData.DashCooldown - _dashRechargeTimer;
+    private bool CanDash => _gameInput.Player.Dash.WasPerformedThisFrame() && _moveType == PlayerMoveType.Normal && _dashCharges > 0;
 
     private void Awake()
     {
         _gameInput = new GameInput();
         CacheComponents();
+        _dashCharges = _playerData.MaxDashCharges;
     }
     private void OnEnable() => _gameInput.Player.Enable();
     private void OnDisable() => _gameInput.Player.Disable();
@@ -44,10 +58,32 @@ public class PlayerController : MonoBehaviour, IKnockbackable
        _mousePosition = mouseWorldPosition;
        _aimDirection = (mouseWorldPosition - (Vector2)transform.position).normalized;
        
+       RechargeDash();
        if (CanDash)
        {
            StartDash();
        }
+    }
+    
+    private void RechargeDash()
+    {
+        if (_dashCharges >= _playerData.MaxDashCharges)
+        {
+            _dashRechargeTimer = 0f;
+            return;
+        }
+        _dashRechargeTimer += Time.deltaTime;
+        if (_dashRechargeTimer >= _playerData.DashCooldown)
+        {
+            _dashRechargeTimer -= _playerData.DashCooldown;
+            _dashCharges++;
+        }
+    }
+
+    private void SpawnTeleportVfx()
+    {
+        Quaternion rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(_dashDirection.y, _dashDirection.x) * Mathf.Rad2Deg);
+        Destroy(Instantiate(_teleportVfx, (Vector2)transform.position + _teleportVfxOffset, rotation), _vfxLifetime);
     }
 
     private void FixedUpdate()
@@ -61,12 +97,16 @@ public class PlayerController : MonoBehaviour, IKnockbackable
             {
                 _moveType = PlayerMoveType.Normal;
                 _spriteRenderer.enabled = true;
+                Destroy(Instantiate(_teleportArriveVfx, (Vector2)transform.position + _teleportVfxOffset, Quaternion.identity), _arriveVfxLifetime);
+                _rigidbody.linearVelocity = Vector2.ClampMagnitude(velocity, _playerData.MoveSpeed);
             }
         }
         else
         {
-            Vector2 velocity = _moveInput * _playerData.MoveSpeed;
-            _rigidbody.linearVelocity = velocity;
+            Vector2 targetVelocity = _moveInput * _playerData.MoveSpeed;
+            float sharpness = _moveInput != Vector2.zero ? _playerData.Acceleration : _playerData.Deceleration;
+            float t = 1f - Mathf.Exp(-sharpness * Time.fixedDeltaTime);
+            _rigidbody.linearVelocity = Vector2.Lerp(_rigidbody.linearVelocity, targetVelocity, t);
         }
     }
 
@@ -75,10 +115,12 @@ public class PlayerController : MonoBehaviour, IKnockbackable
         if (_moveInput != Vector2.zero)
         {
             _dashDirection =  _moveInput.normalized;
+            SpawnTeleportVfx();
+            FeedbackManager.Instance.Teleport();
             _moveType = PlayerMoveType.Dash;
             _spriteRenderer.enabled = false;
             _dashEndTime = Time.time + _playerData.DashDuration;
-            _nextDashTime = Time.time + _playerData.DashCooldown;
+            _dashCharges--;
             _invincibleEndTime = Time.time + _playerData.DashInvincibleDuration;
         }
     }
