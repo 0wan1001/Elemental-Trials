@@ -20,10 +20,7 @@ public class ReactionTable : ScriptableObject
         {
             bool sameOrder = entry.A == x && entry.B == y;
             bool reverseOrder = entry.A == y && entry.B == x;
-            if (sameOrder || reverseOrder)
-            {
-                return entry;
-            }
+            if (sameOrder || reverseOrder) return entry;
         }
         return null;
     }
