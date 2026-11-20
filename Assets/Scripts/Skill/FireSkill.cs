@@ -13,6 +13,7 @@ public class FireSkill : ElementSkill
     
     public override void Use(Vector2 playerPosition, Vector2 mousePosition, TileGrid grid)
     {
+        SoundManager.Instance.Play(SoundType.FireballCast);
         FireBall ball = Instantiate(_fireBallPrefab, playerPosition, Quaternion.identity);
         ball.Init(this, playerPosition, mousePosition, _speed, grid);
     }

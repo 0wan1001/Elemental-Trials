@@ -105,6 +105,7 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, ISlowab
     
     public void FireRadial(int count, float speed)
     {
+        SoundManager.Instance.Play(SoundType.BossBullet);
         float step = 360f / count;
         for (int i = 0; i < count; i++)
         {
@@ -114,6 +115,7 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, ISlowab
     
     public void FireFan(Vector2 direction, int count, float spreadAngle, float speed)
     {
+        SoundManager.Instance.Play(SoundType.BossBullet);
         float centerAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         float step = count > 1 ? spreadAngle / (count - 1) : 0f;
         float startAngle = centerAngle - spreadAngle / 2f;
