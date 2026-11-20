@@ -44,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
             // 지팡이 끝에서 쏜다. 연발 사이에 방향을 바꾸면 그때의 지팡이 끝에서 나간다.
             Vector2 staffTip = (Vector2)transform.position + _spriteAnimator.StaffTipOffset;
             Destroy(Instantiate(_muzzleVfx, staffTip, Quaternion.identity, transform), _muzzleVfxLifetime);
+            SoundManager.Instance.Play(SoundType.BasicShot);
             Projectile projectile = _projectilePool.Get();
             projectile.Launch(staffTip, _playerController.AimDirection, _skillData.BoltSpeed, _skillData.BoltLifeTime, _skillData.Damage);
         }

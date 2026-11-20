@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6d02c01a825b148a750a476829f957, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: Assembly-CSharp::SoundData
+  _entries:
+  - Type: 0
+    Clip: {fileID: 8300000, guid: f7522cadf9fcffc4f94c8b1d3f70ea05, type: 3}
+    Volume: 0.2
+    MinInterval: 0.03
+  - Type: 1
+    Clip: {fileID: 8300000, guid: d9117e9f1a765ed41bb971f447f00713, type: 3}
+    Volume: 0.8
+    MinInterval: 0
+  - Type: 2
+    Clip: {fileID: 8300000, guid: d60ae036bcd3bda46b9e2b1ec93c18c1, type: 3}
+    Volume: 0.9
+    MinInterval: 0
+  - Type: 3
+    Clip: {fileID: 8300000, guid: 3e9ee495600e2ed45a153ea250e940ff, type: 3}
+    Volume: 0.8
+    MinInterval: 0
+  - Type: 4
+    Clip: {fileID: 8300000, guid: 9d36b35b8a1102b46a4902d308f689e1, type: 3}
+    Volume: 0.9
+    MinInterval: 0
+  - Type: 5
+    Clip: {fileID: 8300000, guid: 00618e3e7dbaeba4fb1e8f90378bca52, type: 3}
+    Volume: 0.7
+    MinInterval: 0
+  - Type: 6
+    Clip: {fileID: 8300000, guid: 59256349ff4f91d4d850fd044f5310d8, type: 3}
+    Volume: 0.7
+    MinInterval: 0
+  - Type: 7
+    Clip: {fileID: 8300000, guid: 7288293631a8cac49bceaa84b57856f0, type: 3}
+    Volume: 1
+    MinInterval: 0
+  - Type: 8
+    Clip: {fileID: 8300000, guid: 0121f6ee979554a4cbe6d3b8db6160d2, type: 3}
+    Volume: 1
+    MinInterval: 0
+  - Type: 9
+    Clip: {fileID: 8300000, guid: 28d2192591a210e42af86d76ab2ac28b, type: 3}
+    Volume: 0.8
+    MinInterval: 0
+  - Type: 10
+    Clip: {fileID: 8300000, guid: 52f878b237276c74795d9eae94945de1, type: 3}
+    Volume: 0.6
+    MinInterval: 0.05
+  - Type: 11
+    Clip: {fileID: 8300000, guid: 96b2d3a5491b7c64281af4895f89505e, type: 3}
+    Volume: 0.9
+    MinInterval: 0
+  - Type: 12
+    Clip: {fileID: 8300000, guid: 391c06aadd473144e88be441d8b6ce62, type: 3}
+    Volume: 0.2
+    MinInterval: 0.05
+  - Type: 13
+    Clip: {fileID: 8300000, guid: 6c29d2b452b2a9a419b715fff0aac538, type: 3}
+    Volume: 0.9
+    MinInterval: 0

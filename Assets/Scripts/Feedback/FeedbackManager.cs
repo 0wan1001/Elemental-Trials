@@ -80,14 +80,17 @@ public class FeedbackManager : MonoBehaviour
                 Hitstop(_data.ShockHitstop);
                 Shake(_data.ShockShake);
                 Popup("감전!", _data.GetColor(ElementType.Lightning));
+                SoundManager.Instance.Play(SoundType.ReactionShock);
                 break;
             case ReactionType.Overload:
                 Hitstop(_data.OverloadHitstop);
                 Shake(_data.OverloadShake);
                 Popup("과부하!", _data.GetColor(ElementType.Fire));
+                SoundManager.Instance.Play(SoundType.ReactionOverload);
                 break;
             case ReactionType.Steam:
                 Popup("증기!", _data.GetColor(ElementType.Water));
+                SoundManager.Instance.Play(SoundType.ReactionSteam);
                 break;
         }
     }
@@ -100,6 +103,7 @@ public class FeedbackManager : MonoBehaviour
     public void BossHit(int damage, ElementType element, Vector3 position)
     {
         _bossFlash.Flash(_data.BossFlashDuration);
+        SoundManager.Instance.Play(SoundType.BossHit);
         DamageNumber number = _numberPool.Count > 0 ? _numberPool.Dequeue() : CreateNumber();
         number.gameObject.SetActive(true);
         number.Show(this, damage, _data.GetColor(element), position + Vector3.up * _data.DamageNumberHeight, _data.DamageNumberDuration, _data.DamageNumberRise);
@@ -110,15 +114,21 @@ public class FeedbackManager : MonoBehaviour
         Hitstop(_data.PlayerHitHitstop);
         Shake(_data.PlayerHitShake);
         _redScreenEndTime = Time.unscaledTime + _data.RedScreenDuration;
+        SoundManager.Instance.Play(SoundType.PlayerHurt);
     }
 
-    public void LightningFlash() => WhiteFlash(_data.LightningFlashDuration, _data.LightningFlashAlpha);
+    public void LightningFlash()
+    {
+        WhiteFlash(_data.LightningFlashDuration, _data.LightningFlashAlpha);
+        SoundManager.Instance.Play(SoundType.LightningStrike);
+    }
 
     // 원소 스킬 풀차지 순간: 화면을 살짝 번쩍이고 약하게 흔든다
     public void ChargeReady()
     {
         WhiteFlash(_data.ChargeReadyFlashDuration, _data.ChargeReadyFlashAlpha);
         Shake(_data.ChargeReadyShake);
+        SoundManager.Instance.Play(SoundType.ChargeReady);
     }
 
     private void WhiteFlash(float duration, float alpha)
@@ -131,11 +141,23 @@ public class FeedbackManager : MonoBehaviour
         _whiteFlashEndTime = now + duration;
     }
 
-    public void FireBallExplosion() => Shake(_data.FireBallShake);
+    public void FireBallExplosion()
+    {
+        Shake(_data.FireBallShake);
+        SoundManager.Instance.Play(SoundType.FireballExplosion);
+    }
 
-    public void ChargeImpact() => Shake(_data.ChargeShake);
+    public void ChargeImpact()
+    {
+        Shake(_data.ChargeShake);
+        SoundManager.Instance.Play(SoundType.DashSlam);
+    }
 
-    public void Teleport() => Shake(_data.TeleportShake);
+    public void Teleport()
+    {
+        Shake(_data.TeleportShake);
+        SoundManager.Instance.Play(SoundType.Teleport);
+    }
 
     // 탄 한 발이 대상에 맞은 순간: 아주 짧게 멈추고 약하게 흔든다
     public void ProjectileHit(float hitstop, float shake)
