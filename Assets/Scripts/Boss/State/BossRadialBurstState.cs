@@ -4,7 +4,6 @@
     {
         private BossController _bossController;
         private float _timer;
-        private Color _originColor;
         
         public BossRadialBurstState(BossController controller)
         {
@@ -15,8 +14,7 @@
         {
             _timer = 0f;
             _bossController.Move(Vector2.zero, 0);
-            _originColor = _bossController.CoreRenderer.color;
-            _bossController.CoreRenderer.color = Color.white;
+            _bossController.CoreGlowView.Show(0f);
         }
 
         public void Tick()
@@ -29,11 +27,12 @@
             else
             {
                 _timer += _bossController.DeltaTime;
+                _bossController.CoreGlowView.Show(_timer / _bossController.BossData.CircularBarrageIndicator);
             }
         }
 
         public void Exit()
         {
-            _bossController.CoreRenderer.color = _originColor;
+            _bossController.CoreGlowView.Hide();
         }
     }
