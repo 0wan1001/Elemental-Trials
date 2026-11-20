@@ -5,7 +5,7 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, ISlowab
     [SerializeField] private Transform _player;
     [SerializeField] private BossData _bossData;
     [SerializeField] private ProjectilePool _projectilePool;
-    [SerializeField] private SpriteRenderer _coreRenderer;
+    [SerializeField] private BossCoreGlowView _coreGlowView;
     [SerializeField] private ChargeLineView _chargeLineView;
     [SerializeField] private TileGrid _tileGrid;
     [SerializeField] private BossDashView _dashView;
@@ -47,7 +47,7 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, ISlowab
     public float SpeedScale => Time.time < _slowEndTime ? _slowMultiplier : 1f;
     public float DeltaTime => Time.deltaTime * SpeedScale;
     public ProjectilePool ProjectilePool => _projectilePool;
-    public SpriteRenderer CoreRenderer => _coreRenderer;
+    public BossCoreGlowView CoreGlowView => _coreGlowView;
     
     public void SpawnDashImpact() => Destroy(Instantiate(_dashImpactVfx, (Vector2)transform.position + _feetOffset, Quaternion.identity), _dashImpactLifetime);
 
@@ -97,7 +97,6 @@ public class BossController : MonoBehaviour, IStunnable, IKnockbackable, ISlowab
         while (_pattern.Length >= 2  && _random == _lastPatternIndex)
         {
             _random = Random.Range(0, _pattern.Length);
-
         }
         _lastPatternIndex = _random;
         return _pattern[_random];
