@@ -40,7 +40,6 @@ public class ArenaIntro : MonoBehaviour
     private void Start()
     {
         _cameraOrigin = _camera.transform.position;
-        _baseSize = _camera.orthographicSize;
         SetAlpha(_textBand, 0f);
         SetAlpha(_titleText, 0f);
         SetAlpha(_subtitleText, 0f);
@@ -67,6 +66,10 @@ public class ArenaIntro : MonoBehaviour
     // 한 프레임에 흐르는 시간은 MAX_FRAME_STEP으로 막는다.
     private IEnumerator IntroRoutine()
     {
+        // PixelPerfectCamera는 카메라를 그리기 직전에 orthographicSize를 화면 해상도에 맞춘다.
+        // Start에서는 씬에 저장된 값이 읽히므로, 한 번 그린 뒤의 값을 기준으로 삼아야 끝에서 크기가 튀지 않는다.
+        yield return null;
+        _baseSize = _camera.orthographicSize;
         Vector3 bossView = BossViewPosition();
         float zoomedSize = _baseSize / _zoom;
         _pixelCamera.enabled = false;
